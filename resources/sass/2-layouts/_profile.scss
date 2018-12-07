@@ -1,0 +1,259 @@
+// .profileUpperWrapper {
+//    width: 100%;
+//    display: block;
+//    position: relative;
+//    margin: 0 auto;
+//    // padding-left: 20px;
+//    // padding-right: 20px;
+//    .profileUserImage {
+//       float: left;
+//       // padding: 5px;
+//       margin-top: 80px;
+//       // margin-left: 15px;
+//       margin-right: 40px;
+//       margin-bottom: 80px;
+//       display: inline-block;
+//       border: 1px solid #ccc;
+//       img{
+//          width: 200px;
+//          height: 200px
+//       }
+//    }
+//    .profileNameWrapper {
+//       float: left;
+//       margin-top: 115px;
+//       display: inline-block;
+//       .profileName {
+//          font-size: 32px;
+//          margin-bottom: -5px;
+//       }
+//       a {
+//          color: #555;
+//          display: block;
+//          font-size: 16px;
+//       }
+//       .followButton {
+//          font-size: 16px;
+//          margin-top: 25px;
+//          font-weight: 500;
+//          padding: 8px 20px;
+//       }
+//    }
+//    .profileDetailsWrapper {
+//       float: right;
+//       width: 275px;
+//       font-size: 14px;
+//       margin-top: 80px;
+//       .profileStat {
+//          width: 100%;
+//          .profileStatItem {
+//             float: left;
+//             width: 33.33%;
+//             font-size: 18px;
+//             font-weight: 600;
+//             text-align: center;
+//             p{
+//                font-size: 15px;
+//             }
+//          }
+//       }
+//       ul{
+//          margin: 0;
+//          padding: 0;
+//          list-style: none;
+//          padding-left: 15px;
+//          li {
+//             margin-top: 5px;
+//             overflow: hidden;
+//             white-space: nowrap;
+//             text-overflow: ellipsis;
+//          }
+//       }
+//    }
+// }
+// .profileNav {
+//    width: 100%;
+//    height: 50px;
+//    font-size: 16px;
+//    border-top: 1px solid #ccc;
+//    border-bottom: 1px solid #ccc;
+//    a {
+//       color: #555;
+//       width: 110px;
+//       margin-left: 10px;
+//       text-align: center;
+//       margin-right: 10px;
+//       padding: 12px 0px 9px;
+//       display: inline-block;
+//       text-decoration: none;
+//       border-bottom: 3px solid;
+//       border-bottom-color: transparent;
+//       &:hover, &:active, &:focus {
+//          color: #777;
+//          border-bottom-color: #f4545f;
+//       }
+//    }
+//    .active {
+//       color: #777;
+//       border-bottom-color: #f4545f;
+//    }
+// }
+// .profileReviewWrapper {
+//    margin-top: 45px;
+//    // padding-left: 25px;
+//    margin-bottom: 5px;
+//    padding-right: 25px;
+//    img {
+//       width: 120px;
+//       height: 90px;
+//       float: left;
+//    }
+//    .profileReviewDetails {
+//       display: inline-block;
+//       margin-left: 15px;
+//       .profileReviewBizName {
+//          display: block;
+//          font-size: 18px;
+//          line-height: 1.1;
+//       }
+//       .profileReviewTags {
+//          font-size: 12px;
+//       }
+//       span {
+//          float: none;
+//          display: block;
+//          font-size: 12px;
+//          line-height: 1.4;
+//       }
+//       .profileReviewStars {
+//          color: #ffd54f;
+//          font-size: 18px;
+//          line-height: 1.4;
+//          margin-bottom: 3px;
+//       }
+//    }
+//    span {
+//       float: right;
+//       font-size: 12px;
+//    }
+//    .profileReviewBody {
+//       color: #555;
+//       margin-top: 15px;
+//       margin-left: 50px;
+//       .profileReviewTools {
+//          float: right;
+//          display: block;
+//          margin-right: 100px;
+//          span {
+//             float: left;
+//             cursor: pointer;
+//             padding: 3px 7px;
+//          }
+//       }
+//    }
+// }
+// .profilePhotoWrapper {
+//    margin-top: 45px;
+//    padding-left: 25px;
+//    margin-bottom: 45px;
+//    padding-right: 25px;
+//    ul {
+//       margin: 0;
+//       padding: 0;
+//       list-style: none;
+//       li {
+//          display: inline-block;
+//          a {
+//             margin: 3px;
+//             width: 125px;
+//             height: 125px;
+//             display: block;
+//             background-color: #deeaf5;
+//             &:hover {
+//                opacity: 0.8;
+//             }
+//             i {
+//                color: #bbb;
+//                z-index: -1;
+//                font-size: 40px;
+//                margin-top: 43px;
+//                margin-left: 45px;
+//             }
+//          }
+//       }
+//    }
+// }
+// .profileFollowerWrapper {
+//    margin-top: 45px;
+//    padding-left: 25px;
+//    margin-bottom: 5px;
+//    padding-right: 25px;
+//    .profileFollowerBody {
+//       float: left;
+//       height: 100px;
+//       display: inline-block;
+//       img {
+//          float: left;
+//          width: 60px;
+//          height: 60px;
+//          margin-right: 12px;
+//          display: inline-block;
+//       }
+//       .profileFollowerDetails {
+//          display: inline-block;
+//          .profileFollowerName {
+//             display: block;
+//             font-size: 16px;
+//             line-height: 1.2;
+//             font-weight: 500;
+//          }
+//          .profileFollowerUsername {
+//             display: block;
+//             font-size: 12px;
+//             font-weight: 500;
+//          }
+//          span {
+//             display: block;
+//             font-size: 12px;
+//             margin-top: 3px;
+//          }
+//       }
+//       .profileFollowerButton {
+//          float: right;
+//          margin-top: 10px;
+//          padding: 4px 10px;
+//       }
+//    }
+// }
+//
+// @media (max-width: 400px) {}
+// @media (min-width: 401px) and (max-width: 576px) {}
+// @media (min-width: 577px) and (max-width: 767px) {}
+// @media (max-width: 767px) {}
+// @media (min-width: 768px) {}
+// @media (min-width: 768px) and (max-width: 991px) {}
+// @media (min-width: 992px) and (max-width: 1199px) {}
+// @media (min-width: 768px) and (max-width: 1199px) {}
+// @media (min-width: 1200px) {
+//    .profileNav {
+//       a {
+//
+//       }
+//    }
+//    .profileFollowerWrapper {
+//       .profileFollowerBody {
+//          width: 50%;
+//          padding: 20px;
+//          img {
+//          }
+//          .profileFollowerDetails {
+//             .profileFollowerName {
+//             }
+//             .profileFollowerUsername {
+//             }
+//          }
+//          .profileFollowerButton {
+//          }
+//       }
+//    }
+// }

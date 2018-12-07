@@ -1,0 +1,348 @@
+// .subNav {
+//    color: #333;
+//    height: 35px;
+//    position: relative;
+//    background-color: #fafafa;
+//    border-bottom: 1px solid #e6e6e6;
+//    .subNavItems {
+//       float: left;
+//       cursor: pointer;
+//       padding: 6px 12px;
+//       border-left: 1px solid #e1e1e1;
+//       &:last-child {
+//          border-right: 1px solid #e1e1e1;
+//       }
+//    }
+// }
+//
+// .searchHeader {
+//    color: #333;
+//    background-color: #f5f5f5;
+//    border-bottom : 1px solid #e1e1e1;
+//    .searchHeading {
+//       margin-top: 50px;
+//       margin-bottom: 5px;
+//       h1, p {
+//          margin-top: 0px;
+//          margin-bottom: 0px;
+//          display: inline-block;
+//       }
+//       h1 {
+//          font-size: 24px;
+//          font-weight: 400;
+//       }
+//       p {
+//          float: right;
+//       }
+//    }
+//    .breadCrumBar {
+//       a {
+//          padding: 4px;
+//          color: #0073bb;
+//          font-size: 13px;
+//       }
+//       i {
+//          color: #777;
+//          font-size: 10px;
+//       }
+//    }
+//    .filterWrapper {
+//       margin-top: 15px;
+//       .filterWrapperVisible {
+//          margin-bottom: 30px;
+//          .filterBtn {
+//             color: #555;
+//             float: left;
+//             // color: #636b6f;
+//             line-height: 1;
+//             cursor: pointer;
+//             border-radius: 3px;
+//             margin-right: 15px;
+//             display: inline-block;
+//             background-color: #fff;
+//             span {
+//                z-index: 1;
+//                float: left;
+//                padding: 11px;
+//                display: block;
+//                position: relative;
+//                margin-right: -1px;
+//                border: 1px solid #ccc;
+//                &.iBtn {
+//                   padding: 12px 10px 9px;
+//                   i {
+//                      margin: 0 1px;
+//                      font-size: 16px;
+//                      font-style : normal;
+//                   }
+//                }
+//                &:hover {
+//                   z-index: 100;
+//                   border-color: #adadad;
+//                   background-color: #e6e5e5;
+//                }
+//                .active {
+//                   z-index: 1000;
+//                   border: 1px solid #d21515;
+//                   background-color: #f00;
+//                }
+//             }
+//          }
+//       }
+//       #filterWrapperHidden {
+//          display: none;
+//          padding-top: 10px;
+//          position: relative;
+//          border-top: 1px solid #999;
+//          &:before, &:after {
+//             width: 0;
+//             height: 0;
+//             left: 694px;
+//             content: "";
+//             position: absolute;
+//             border-style: solid;
+//             border-width: 0 12px 12px 12px;
+//          }
+//          &:before {
+//             top: -13px;
+//             z-index: 98;
+//             border-color: transparent transparent #777 transparent;
+//          }
+//          &:after {
+//             top: -12px;
+//             z-index: 99;
+//             border-color: transparent transparent #f5f5f5 transparent;
+//          }
+//       }
+//    }
+// }
+//
+// .searchContent{
+//    padding-top: 20px;
+//    .searchResultBody{
+//       width: 100%;
+//       height: auto;
+//       padding-top: 18px;
+//       padding-bottom: 18px;
+//       border-top: 1px solid #e1e1e1;
+//       .s-r-b-upper{
+//          width: 670px;
+//          height: 100px;
+//          .s-r-image, .s-r-info, .s-r-contact{
+//             float: left;
+//             display: inline-block;
+//          }
+//          .s-r-image{
+//             width: 120px;
+//             height: 90px;
+//             img {
+//                border-radius: 4px;
+//             }
+//          }
+//          .s-r-info{
+//             width: 300px;
+//             padding-left: 12px;
+//             .bizName{
+//                height: 22px;
+//                display: block;
+//                h2{
+//                   margin: 0;
+//                   width: 100%;
+//                   font-size: 16px;
+//                   // overflow: hidden;
+//                   padding-top: 3px;
+//                   // white-space: nowrap;
+//                   display: inline-block;
+//                   // text-overflow: ellipsis;
+//                   font-weight: 600 !important;
+//                   a{
+//                      color: #337ab7;
+//                      text-decoration: none;
+//                      &:hover{
+//                         text-decoration: underline;
+//                      }
+//                   }
+//                }
+//             }
+//             .bizTags{
+//                font-size: 12px;
+//             }
+//             .bizRating{
+//                width: 78px;
+//                height: 13px;
+//                overflow: visible;
+//                display: inline-block;
+//                margin-top: 2px;
+//                background-image: url(/images/stars-rating.png);
+//                background-repeat: no-repeat;
+//                &.five-star{ background-position: 0px 0px; }
+//                &.four-half-star{ background-position: 0 -20px; }
+//                &.four-star{ background-position: 0 -40px; }
+//                &.three-half-star{ background-position: 0 -60px; }
+//                &.three-star{ background-position: 0 -80px; }
+//                &.two-half-star{ background-position: 0 -100px; }
+//                &.two-star{ background-position: 0 -120px; }
+//                &.one-half-star{ background-position: 0 -140px; }
+//                &.one-star{ background-position: 0 -160px; }
+//                &.half-star{ background-position: 0 -180px; }
+//             }
+//             .bizReviewCount{
+//                line-height: 1;
+//                font-size: 11px;
+//                margin-top: 3px;
+//                margin-left: 7px;
+//                font-weight: 600;
+//                vertical-align: top;
+//                display: inline-block;
+//                a{
+//                   color: #337ab7;
+//                   text-decoration: none;
+//                   &:hover{
+//                      text-decoration: underline;
+//                   }
+//                }
+//             }
+//             .bizFacility{
+//                ul{
+//                   padding: 0;
+//                   margin: 0px;
+//                   list-style: none;
+//                   li{
+//                      color: #444;
+//                      float: left;
+//                      cursor: pointer;
+//                      background: #eef;
+//                      padding-top: 4px;
+//                      padding-left: 5px;
+//                      margin-right: 6px;
+//                      padding-right: 5px;
+//                      padding-bottom: 1px;
+//                      display: inline-block;
+//                      &:hover{
+//                         background: #ddd;
+//                      }
+//                   }
+//                }
+//             }
+//          }
+//          .s-r-contact{
+//             width: 250px;
+//             padding-left: 10px;
+//             .searchAddress,
+//             .searchLandmark,
+//             .searchContact {
+//                margin-bottom: 5px;
+//                i{
+//                   margin-left: 1px;
+//                   margin-right: 7px;
+//                   font-size: 13px !important;
+//                }
+//             }
+//          }
+//       }
+//       .s-r-b-middle {
+//          width: 100%;
+//          height: 49px;
+//          display: block;
+//          margin-top: 5px;
+//          position: relative;
+//          padding-left: 130px;
+//          .searchAppointment{
+//             padding: 7px;
+//             background: #eee;
+//             button{
+//                width: 230px;
+//                font-size: 16px;
+//                padding: 6px 9px;
+//                display: inline-block;
+//             }
+//             p{
+//                color: #444;
+//                margin: 0px;
+//                margin-left: 25px;
+//                display: inline-block;
+//                span{
+//                   color: #4CAF50;
+//                   font-weight: 600;
+//                }
+//             }
+//          }
+//       }
+//       .s-r-b-lower {
+//          width: 100%;
+//          height: 50px;
+//          display: block;
+//          position: relative;
+//          margin-top: 10px;
+//          .searchReview{
+//             // border: 1px solid #eee;
+//             .s-r-image{
+//                margin: 3px;
+//                float: left;
+//                img{
+//                   width: 44px;
+//                   height: 44px;
+//                }
+//             }
+//             .s-r-p{
+//                width: 600px;
+//                float: left;
+//                padding: 6px;
+//                line-height: 1.4;
+//                margin-left: 5px;
+//                display: inline-block;
+//                p{
+//                   margin: 0px;
+//                   a{
+//                      font-weight: bold;
+//                   }
+//                }
+//             }
+//          }
+//       }
+//    }
+//    .searchResultPageBottom{
+//       width: 100%;
+//       padding: 10px;
+//       border-top: 1px solid #ccc;
+//       border-bottom: 1px solid #ccc;
+//       .s-p-b-right{
+//          width: auto;
+//          float: right;
+//          cursor: pointer;
+//          a{
+//             // padding: 5px;
+//             font-weight: bold;
+//             text-decoration: none;
+//             span{
+//                padding: 11px 7px;
+//                &:hover {
+//                   color: #216a94;
+//                }
+//                &.active{
+//                   color: #216a94;
+//                   border-bottom: 3px solid red;
+//                }
+//             }
+//          }
+//       }
+//    }
+// }
+// .searchSidebar{
+//    .searchResultSideMap{
+//       width: 338px;
+//       height:338px;
+//       margin-bottom: 10px;
+//       border: 1px solid #e6e6e6;
+//    }
+// }
+//
+// @media (max-width: 400px) {}
+// @media (min-width: 401px) and (max-width: 576px) {}
+// @media (min-width: 577px) and (max-width: 767px) {}
+// @media (max-width: 767px) {}
+// @media (min-width: 768px) {}
+// @media (min-width: 768px) and (max-width: 991px) {}
+// @media (min-width: 992px) and (max-width: 1199px) {}
+// @media (min-width: 768px) and (max-width: 1199px) {}
+// @media (min-width: 1200px) {}

@@ -1,14 +1,18 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Bootstrap : Use CDN Later
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+// Font-Awesome : Use CDN Later
+@import "node_modules/font-awesome/scss/font-awesome";
+
+// Costum scss
+@import "0-plugins/plugins-dir.scss";
+@import "1-base/base-dir.scss";
+@import "2-layouts/layouts-dir.scss";
+@import "3-modules/modules-dir.scss";

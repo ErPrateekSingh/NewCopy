@@ -1,0 +1,57 @@
+// body,
+// input,
+// select,
+// textarea {
+// 	font-family: 'Roboto', sans-serif;
+// }
+//
+// body {
+//    width: 360px;
+//    min-width: 360px;
+// 	padding-top: 56px;
+//    width: auto !important;
+//    background-color: #fff;
+// }
+//
+// button {
+//    &:hover, &:active, &:focus {
+//       outline: 0;
+//    }
+// }
+// html {
+// 	font-size: 14px;
+// 	font-family: 'Roboto', sans-serif;
+// }
+// // Code to prevent Crome Autofill colour
+// @-webkit-keyframes autofill {
+//     to {
+//         color: #666;
+//         background: transparent;
+//     }
+// }
+// input:-webkit-autofill {
+//     -webkit-animation-name: autofill;
+//     -webkit-animation-fill-mode: both;
+// }
+// // Code to get Custom ScrollBar
+// div {
+// 	&::-webkit-scrollbar {
+// 		width: 10px;
+// 		background-color: #F5F5F5;
+// 	}
+// 	&::-webkit-scrollbar-track {
+// 		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+// 		background-color: #F5F5F5;
+// 	}
+// 	&::-webkit-scrollbar-thumb {
+// 		border-radius: 4px;
+// 		background: linear-gradient(to right, #fff, #e4e4e4);
+// 		border: 1px solid #aaa;
+// 	}
+// 	&::-webkit-scrollbar-thumb:hover {
+// 		background: #fff;
+// 	}
+// 	&::-webkit-scrollbar-thumb:active {
+// 		background: linear-gradient(to right, #22ADD4, #1E98BA);
+// 	}
+// }
