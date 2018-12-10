@@ -1,0 +1,155 @@
+#homeLeft {
+   float: left;
+   width: 220px;
+   min-height: 100vh;
+   margin-top: -56px;
+   padding-top: 76px;
+   position: relative;
+   border-right: 1px solid #ccc;
+   .homeUserImage{
+      img{
+         width: 150px;
+         height: 150px;
+         margin: 0px 35px;
+      }
+
+   }
+   .homeUserFullName {
+      color: #555;
+      display: block;
+      font-size: 20px;
+      text-align: center;
+      margin: 10px 15px 0px;
+   }
+   .homeUserName {
+      color: #999;
+      display: block;
+      margin: 0px 15px;
+      text-align: center;
+   }
+   .homeSidebarItems {
+      margin-top: 30px;
+      a {
+         color: #525252;
+         display: block;
+         font-size: 16px;
+         padding: 7px 30px;
+         text-decoration: none;
+         border-left: 5px solid;
+         border-color: transparent;
+         &:hover, &:focus, &:active {
+            border-color: #f4545f;
+            background-color: rgba(0, 0, 0, 0.05);
+         }
+      }
+   }
+
+}
+#homeCenter {
+   float:left;
+   position: relative;
+   padding-top: 20px;
+}
+#homeRight {
+   float:left;
+   height: auto;
+   padding-top: 20px;
+   position: relative;
+   border-left: 1px solid #ccc;
+}
+
+
+// Unwanted Elements
+#homeRight > .UW{
+   color: #777;
+   font-size: 40px;
+   margin-top: 10px;
+   text-align: center;
+   background-color: #eee;
+}
+
+@media (max-width: 400px) {}
+@media (min-width: 401px) and (max-width: 576px) {}
+@media (min-width: 577px) and (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (min-width: 768px) {}
+@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 992px) and (max-width: 1199px) {
+   #homeLeft {
+
+      .homeUserImage{
+         img{
+
+         }
+
+      }
+      .homeUserFullName {
+
+      }
+      .homeUserName {
+
+      }
+      .homeSidebarItems {
+
+         a {
+
+         }
+      }
+
+   }
+   #homeCenter {
+      width: calc(100% - 540px);
+   }
+   #homeRight {
+      width: 320px;
+      padding: 0px 10px;
+   }
+
+
+   // Unwanted Elements
+   #homeRight > .UW{
+      width: 300px;
+      height: 250px;
+      padding-top: 90px;
+   }
+}
+@media (min-width: 768px) and (max-width: 1199px) {}
+@media (min-width: 1200px) {
+   #homeLeft {
+
+      .homeUserImage{
+         img{
+
+         }
+
+      }
+      .homeUserFullName {
+
+      }
+      .homeUserName {
+
+      }
+      .homeSidebarItems {
+
+         a {
+
+         }
+      }
+
+   }
+   #homeCenter {
+      width: calc(100% - 570px);
+   }
+   #homeRight {
+      width: 350px;
+      padding: 0px 7px;
+   }
+
+
+   // Unwanted Elements
+   #homeRight > .UW{
+      width: 336px;
+      height: 280px;
+      padding-top: 105px;
+   }
+}

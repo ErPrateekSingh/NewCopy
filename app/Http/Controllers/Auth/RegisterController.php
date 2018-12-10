@@ -28,7 +28,9 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+
+    protected $redirectTo = '/home';/* Redirected to '/user/details' page rather than '/home' */
+    // protected $redirectTo = '/register/user/details';/* Redirected to '/user/details' page rather than '/home' */
 
     /**
      * Create a new controller instance.
@@ -49,9 +51,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'password' => ['required', 'string', 'min:6'], /*'|confirmed' - Removed to avoid password confimation*/
+            'g-recaptcha-response' => ['required', 'captcha'], /* g-captcha validation*/
         ]);
     }
 
@@ -63,10 +67,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+        $user = User::create([
+            'fname' => ucwords(strtolower($data['fname'])),
+            'lname' => ucwords(strtolower($data['lname'])),
+            'email' => strtolower($data['email']),
             'password' => Hash::make($data['password']),
         ]);
+        // This will assign users with 'subscriber' role
+        $user->attachRole('subscriber');
+        $user->save();
+        return $user;
     }
 }

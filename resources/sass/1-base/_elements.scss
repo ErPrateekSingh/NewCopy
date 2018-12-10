@@ -1,57 +1,69 @@
-// body,
-// input,
-// select,
-// textarea {
-// 	font-family: 'Roboto', sans-serif;
-// }
-//
-// body {
-//    width: 360px;
-//    min-width: 360px;
-// 	padding-top: 56px;
-//    width: auto !important;
-//    background-color: #fff;
-// }
-//
-// button {
-//    &:hover, &:active, &:focus {
-//       outline: 0;
-//    }
-// }
-// html {
-// 	font-size: 14px;
-// 	font-family: 'Roboto', sans-serif;
-// }
-// // Code to prevent Crome Autofill colour
-// @-webkit-keyframes autofill {
-//     to {
-//         color: #666;
-//         background: transparent;
-//     }
-// }
-// input:-webkit-autofill {
-//     -webkit-animation-name: autofill;
-//     -webkit-animation-fill-mode: both;
-// }
-// // Code to get Custom ScrollBar
-// div {
-// 	&::-webkit-scrollbar {
-// 		width: 10px;
-// 		background-color: #F5F5F5;
-// 	}
-// 	&::-webkit-scrollbar-track {
-// 		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-// 		background-color: #F5F5F5;
-// 	}
-// 	&::-webkit-scrollbar-thumb {
-// 		border-radius: 4px;
-// 		background: linear-gradient(to right, #fff, #e4e4e4);
-// 		border: 1px solid #aaa;
-// 	}
-// 	&::-webkit-scrollbar-thumb:hover {
-// 		background: #fff;
-// 	}
-// 	&::-webkit-scrollbar-thumb:active {
-// 		background: linear-gradient(to right, #22ADD4, #1E98BA);
-// 	}
-// }
+body,
+html,
+input,
+select,
+textarea {
+    font-family: $font-family-sans-serif;
+}
+
+body {
+    width: 360px; // Will decide while front end design
+    min-width: 360px; // Will decide while front end design
+    padding-top: 60px; //for navbar fixed top 56px
+    width: auto !important;
+    background-color: #fff;
+}
+
+html {
+    font-size: $font-size-base;
+}
+
+button {
+    &:active,
+    &:focus,
+    &:hover {
+        outline: 0;
+    }
+}
+
+// Code to prevent Crome Autofill colour
+@-webkit-keyframes autofill {
+    to {
+        color: #666;
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
+// Code to get Custom ScrollBar
+div {
+    &::-webkit-scrollbar {
+        width: 10px;
+        background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #F5F5F5;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        border: 1px solid #aaa;
+        background: -o-linear-gradient(left, #fff, #e4e4e4);
+        background: linear-gradient(to right, #fff, #e4e4e4);
+        background: -webkit-linear-gradient(left, #fff, #e4e4e4);
+        &:hover {
+            background: #fff;
+        }
+        &:active {
+            background: -o-linear-gradient(left, #22ADD4, #1E98BA);
+            background: linear-gradient(to right, #22ADD4, #1E98BA);
+            background: -webkit-linear-gradient(left, #22ADD4, #1E98BA);
+        }
+    }
+}

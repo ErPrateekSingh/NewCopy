@@ -2,46 +2,73 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+   <div class="row">
+      <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+         <div class="panel panel-form clearfix">
+            <div class="panel-circle">
+               <i class="fa fa-lock" style="margin-top: 5px;"></i>
+               <span style="font-size: 16px;line-height: 1.1;">Reset Password</span>
             </div>
-        </div>
-    </div>
+            <div class="panel-body">
+               @if (session('status'))
+                  <div class="alert alert-success">
+                     {{ session('status') }}
+                  </div>
+               @endif
+               <form id="emailForm" class="form-horizontal" method="POST" action="{{ route('password.email') }}" role="form" novalidate>
+                  @csrf
+                  <div class="col-xs-10 col-xs-offset-1">
+                     <div class="form-group form-group-mat{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" required>
+                        <label for="email" class="control-label"><i class="fa fa-envelope m-r-5"></i> E-Mail Address</label><i class="bar"></i>
+                        <div id="error_email" class=""></div>
+                        @if ($errors->has('email'))
+                           <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
+                        @endif
+                     </div>
+                     <div class="form-group form-group-mat" style="text-align:center;">
+                        <button type="submit" class="btn btn-primary" data-ripple="rgba(255,255,255,0.5)" style="width:95%; margin-top: 10px;">
+                           Send Password Reset Link
+                        </button>
+                     </div>
+                     <span style="display: block;text-align: center;margin-top: 20px;">
+                        <a href="{{ route('login') }}"><i class="fa fa-caret-left m-r-5"></i>Back to Log in</a>
+                     </span>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+function field_error(id,text){
+   $('#error_'+id).attr('class', 'error').text(text);
+   $("#glyphcn"+id).remove();
+   var div = $("#"+id).closest("div");
+   div.removeClass("has-success").addClass("has-error has-feedback").append('<span id="glyphcn'+id+'" class="glyphicon glyphicon-remove form-control-feedback"></span>');
+   return false;
+}
+function field_clear(id){
+   $('#error_'+id).attr('class', '').text('');
+   $("#glyphcn"+id).remove();
+   $("#"+id).closest("div").removeClass("has-error has-success has-feedback");
+}
+function validateForm() {
+   var valid = true;
+   var email = $("#email").val();
+   if (email == '') valid = field_error('email','Email is required!');
+   else  if(!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,5})+$/)) valid = field_error("email","Enter a valid Email Address!");
+   return valid;
+}
+$(document).ready(function(){
+   // Code for indivadual Register fields STARTS
+   $('#email').on('blur',function(){($(this).val() == "")?field_clear("email"):validateForm()});
+   //Code for Register Form Submit STARTS
+   $('#emailForm').on('submit', function(e){ if(!validateForm()) e.preventDefault(); });
+});
+</script>
 @endsection

@@ -1,80 +1,86 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ app()->getLocale() }}">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7, IE=9"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <!-- CSRF Token -->
+   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+   <title>{{ config('app.name', 'Zendur') }}</title>
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+   <meta name="description" content=""><!--To be added Later-->
+   <meta name="keywords" content=""><!--To be added Later-->
+   <meta name="author" content=""><!--To be added Later-->
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+   <!-- Schema.org markup for Google+ -->
+   <meta itemprop="name" content="The Name or Title Here">
+   <meta itemprop="description" content="This is the page description">
+   <meta itemprop="image" content="http://www.example.com/image.jpg">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+   <!-- Twitter Card data -->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:site" content="@publisher_handle">
+   <meta name="twitter:title" content="Page Title">
+   <meta name="twitter:description" content="Page description less than 200 characters">
+   <meta name="twitter:creator" content="@author_handle">
+   <!-- Twitter summary card with large image must be at least 280x150px -->
+   <meta name="twitter:image:src" content="http://www.example.com/image.jpg">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+   <!-- Open Graph data -->
+   <meta property="og:title" content="Title Here" />
+   <meta property="og:type" content="article" />
+   <meta property="og:url" content="http://www.example.com/" />
+   <meta property="og:image" content="http://example.com/image.jpg" />
+   <meta property="og:description" content="Description Here" />
+   <meta property="og:site_name" content="Site Name, i.e. Moz" />
+   <meta property="article:published_time" content="2013-09-17T05:59:00+01:00" />
+   <meta property="article:modified_time" content="2013-09-16T19:08:47+01:00" />
+   <meta property="article:section" content="Article Section" />
+   <meta property="article:tag" content="Article Tag" />
+   <meta property="fb:admins" content="Facebook numberic ID" />
+
+   <meta name="robots" content="index, follow"><!--To be checked and modify Later-->
+   <meta name="mobile-web-app-capable" content="yes"><!--To be checked and modify Later-->
+   <meta name="apple-mobile-web-app-capable" content="yes"><!--To be checked and modify Later-->
+   <meta name="apple-mobile-web-app-status-bar-style" content="default"><!--To be checked and modify Later-->
+   <link href="{{ asset('css/app.css') }}" rel="stylesheet"><!--Laravel's stylesheet-->
+   @yield('styles')
+   <!-- /*<style>
+      @media (max-width: 577px) {
+         .m-header .m-search {display: none !important;}
+         .m-header .m-city {float: right;margin-right: 15px;}
+      }
+      @media (min-width: 576px) {
+         .m-header {display: none;}
+      }
+      /*form.navbar-form.navbar-left {display: none !important;}*/
+   </style>*/ -->
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<!-- Update your html tag to include the itemscope and itemtype attributes. -->
+<body itemscope itemtype="http://schema.org/WebPage">
+   <div id="app">
+      @include('_includes.nav.mainNav')
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+      @yield('content')
 
-                    </ul>
+      @include('_includes.footer.mainFooter')
+   </div>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+   <!--SideNav Modal Starts Here-->
+   @include('_includes.modals.sideNavModal')
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+   <!--City Modal Starts Here-->
+   @include('_includes.modals.cityModal')
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+   <!--Search Modal Starts Here-->
+   @include('_includes.modals.searchModal')
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+   <!-- Scripts -->
+   <script src="{{ asset('js/app.js') }}"></script>
+   <!-- script for Cookies -->
+   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+   @yield('scripts')
 </body>
 </html>

@@ -1,146 +1,146 @@
-// // bootstrap-css overrides
-// .form-control, .btn, .panel {
-//    border-radius: 0px;
-// }
-// .panel {
-//    margin-bottom: 0px;
-// }
-// .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
-//    outline: 0;
-//    outline-offset: 0;
-// }
-// .radio label, .checkbox label {
-//     min-height: 14px;
-//     line-height: 1;
-// }
-// //button Overrides
-// .button::before {
-//    background: none !important;
-//    border: none !important;
-// }
-//
-// // Tooltip Overrides
-// .tooltip-inner {
-//    min-width: 100px;
-//    max-width: 100%;
-// }
-// @media (max-width: 320px) {
-//    .tooltip-inner {
-//       min-width: initial;
-//       max-width: 320px;
-//    }
-// }
-// // Modal Overrides
-// .modal {
-//    &.fade {
-//       &:not(.in).sideNav .modal-dialog {
-//          -webkit-transform: translate3d(-100%, 0, 0);
-//              -ms-transform: translate3d(-100%, 0, 0);
-//               -o-transform: translate3d(-100%, 0, 0);
-//                  transform: translate3d(-100%, 0, 0);
-//       }
-//       .modal-dialog {
-//          -webkit-transition: -webkit-transform .3s ease-out;
-//          -o-transition:      -o-transform .3s ease-out;
-//          transition:         transform .3s ease-out;
-//          -webkit-transform: translate(0, -100%); /*Previously -25% in place of -100%*/
-//          -ms-transform: translate(0, -100%); /*Previously -25% in place of -100%*/
-//          -o-transform: translate(0, -100%); /*Previously -25% in place of -100%*/
-//          transform: translate(0, -100%); /*Previously -25% in place of -100%*/
-//       }
-//       &.sideNav {
-//         padding-left: 0px !important;
-//         -webkit-transition: opacity .25s linear;
-//              -o-transition: opacity .25s linear;
-//                 transition: opacity .25s linear;
-//         .modal-dialog {
-//           margin: 0px;
-//           width: 300px;
-//           min-height: 100%;
-//           background: #fff;
-//         }
-//         .modal-content {
-//           border: 0px;
-//           -webkit-box-shadow: none;
-//           box-shadow: none;
-//         }
-//       }
-//       &.cityModal {
-//          padding-right: 0px !important;
-//          .modal-dialog {
-//             margin: 0px;
-//             background: #fff;
-//          }
-//          .modal-content {
-//             border: 0px;
-//          }
-//       }
-//    }
-//    &.in .modal-dialog {
-//      -webkit-transform: translate(0, 0);
-//          -ms-transform: translate(0, 0);
-//           -o-transform: translate(0, 0);
-//              transform: translate(0, 0);
-//    }
-//    &#searchModal {
-//       padding-right: 0px !important;
-//       .modal-dialog {
-//          margin: 0px;
-//          background: #fff;
-//       }
-//       .modal-content {
-//          border: 0px;
-//          border-radius: 0px;
-//       }
-//    }
-// }
-//
-// // jquery-ui-css overrides
-// // datepicker
-// .ui-widget {
-//    font-family: 'Roboto', sans-serif !important;
-// }
-// .ui-corner-all {
-//    border-radius: 0px !important;
-// }
-// .ui-datepicker{
-//    margin-top: 2px;
-//    width: 20em !important;
-//    z-index: 10 !important;
-//    .ui-datepicker-header {
-//       margin: -0.2em -0.2em 0;
-//       padding: 0.5em 0 !important;
-//    }
-//    .ui-datepicker-prev,
-//    .ui-datepicker-next {
-//       display: none !important;
-//    }
-//    .ui-datepicker-title {
-//       margin: 0px !important;
-//       select {
-//          font-size: 1.1em !important;
-//          margin: 1px 1% !important;
-//       }
-//    }
-//    td {
-//       padding: 5px !important;
-//       span,
-//       a {
-//          text-align: center !important;
-//       }
-//    }
-// }
-// .ui-widget-header {
-//    border-left: 0px !important;
-//    border-right: 0px !important;
-//    border-top: 0px !important;
-// }
-//
-// //cropper override
-// .cropper-point, .cropper-line {
-//    background-color: #ff0000 !important;
-// }
-// .cropper-view-box {
-//    outline-color: rgba(255, 0, 0, 0.75) !important;
-//    outline: 1px solid #ff0000 !important;
-// }
+// bootstrap-css overrides
+.form-control, .btn, .panel {
+   border-radius: 0px;
+}
+.panel {
+   margin-bottom: 0px;
+}
+.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
+   outline: 0;
+   outline-offset: 0;
+}
+.radio label, .checkbox label {
+    min-height: 14px;
+    line-height: 1;
+}
+//button Overrides
+.button::before {
+   background: none !important;
+   border: none !important;
+}
+
+// Tooltip Overrides
+.tooltip-inner {
+   min-width: 100px;
+   max-width: 100%;
+}
+@media (max-width: 320px) {
+   .tooltip-inner {
+      min-width: initial;
+      max-width: 320px;
+   }
+}
+// Modal Overrides
+.modal {
+   &.fade {
+      &:not(.in).sideNav .modal-dialog {
+         -webkit-transform: translate3d(-100%, 0, 0);
+             -ms-transform: translate3d(-100%, 0, 0);
+              -o-transform: translate3d(-100%, 0, 0);
+                 transform: translate3d(-100%, 0, 0);
+      }
+      .modal-dialog {
+         -webkit-transition: -webkit-transform .3s ease-out;
+         -o-transition:      -o-transform .3s ease-out;
+         transition:         transform .3s ease-out;
+         -webkit-transform: translate(0, -100%); /*Previously -25% in place of -100%*/
+         -ms-transform: translate(0, -100%); /*Previously -25% in place of -100%*/
+         -o-transform: translate(0, -100%); /*Previously -25% in place of -100%*/
+         transform: translate(0, -100%); /*Previously -25% in place of -100%*/
+      }
+      &.sideNav {
+        padding-left: 0px !important;
+        -webkit-transition: opacity .25s linear;
+             -o-transition: opacity .25s linear;
+                transition: opacity .25s linear;
+        .modal-dialog {
+          margin: 0px;
+          width: 300px;
+          min-height: 100%;
+          background: #fff;
+        }
+        .modal-content {
+          border: 0px;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+        }
+      }
+      &.cityModal {
+         padding-right: 0px !important;
+         .modal-dialog {
+            margin: 0px;
+            background: #fff;
+         }
+         .modal-content {
+            border: 0px;
+         }
+      }
+   }
+   &.in .modal-dialog {
+     -webkit-transform: translate(0, 0);
+         -ms-transform: translate(0, 0);
+          -o-transform: translate(0, 0);
+             transform: translate(0, 0);
+   }
+   &#searchModal {
+      padding-right: 0px !important;
+      .modal-dialog {
+         margin: 0px;
+         background: #fff;
+      }
+      .modal-content {
+         border: 0px;
+         border-radius: 0px;
+      }
+   }
+}
+
+// jquery-ui-css overrides
+// datepicker
+.ui-widget {
+   font-family: 'Roboto', sans-serif !important;
+}
+.ui-corner-all {
+   border-radius: 0px !important;
+}
+.ui-datepicker{
+   margin-top: 2px;
+   width: 20em !important;
+   z-index: 10 !important;
+   .ui-datepicker-header {
+      margin: -0.2em -0.2em 0;
+      padding: 0.5em 0 !important;
+   }
+   .ui-datepicker-prev,
+   .ui-datepicker-next {
+      display: none !important;
+   }
+   .ui-datepicker-title {
+      margin: 0px !important;
+      select {
+         font-size: 1.1em !important;
+         margin: 1px 1% !important;
+      }
+   }
+   td {
+      padding: 5px !important;
+      span,
+      a {
+         text-align: center !important;
+      }
+   }
+}
+.ui-widget-header {
+   border-left: 0px !important;
+   border-right: 0px !important;
+   border-top: 0px !important;
+}
+
+//cropper override
+.cropper-point, .cropper-line {
+   background-color: #ff0000 !important;
+}
+.cropper-view-box {
+   outline-color: rgba(255, 0, 0, 0.75) !important;
+   outline: 1px solid #ff0000 !important;
+}

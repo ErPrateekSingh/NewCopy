@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('welcome'); });
 
-Auth::routes();
+// Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('profile', function () {
+    // Only verified users may enter...
+})->middleware('verified');
+
+
+//(OK) Route to check if email is unique through ajax request on register page
+Route::post('/email/unique', 'AjaxRequestController@checkUniqueEmail')->name('email.unique');
