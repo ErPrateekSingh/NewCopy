@@ -2,10 +2,13 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Image;
 use App\State;
 use App\Profile;
+use App\Image as Img;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class RegisterUserController extends Controller
 {
@@ -72,8 +75,8 @@ class RegisterUserController extends Controller
            $img->resize(40, 40)->save($location_avtr); // Resize Image & Save Image for Avatar (Displays only 32X32)
 
            $id = Img::insertGetId(['image_path' => $file_name, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]); // Save Image path in database
-           DB::table('images_user')->insert(['user_id' => Auth::user()->id, 'image_id' => $id, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]);
-           DB::table('users')->where('id', Auth::user()->id)->update(['status_id' => '3', 'image_id' => $id, 'updated_at' => \Carbon\Carbon::now()]);
+           DB::table('image_user')->insert(['user_id' => Auth::user()->id, 'image_id' => $id, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]);
+           DB::table('profiles')->where('user_id', Auth::user()->id)->update(['image_id' => $id, 'updated_at' => \Carbon\Carbon::now()]);
            return redirect()->route('home');
         }
      }

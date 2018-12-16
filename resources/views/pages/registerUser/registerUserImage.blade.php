@@ -28,14 +28,14 @@
                <div class="col-xs-10 col-xs-offset-1">
                   <form id="registerUserImage" class="form-horizontal clearfix" method="POST" action="{{ route('register.user.image') }}" role="form" enctype="multipart/form-data" novalidate>
                      {{ csrf_field() }}
-                     <div class="tabHeader pull-left">User Image :</div>
+                     <div class="tabHeader pull-left">User Image</div>
                      <a href="{{ route('home') }}" class="pull-right m-t-10" style="cursor: pointer;">Skip this step <i class="fa fa-angle-double-right"></i></a>
                      <div class="col-sm-6 col-sm-offset-3 col-sm-offset-right-3 col-xs-12 clearfix">
                         <div class="tabWrapper clearfix">
                            <input type="hidden" name="cropped_value" id="cropped_value" value="">
                            <input id="userImage" type="file" name="userImage" accept="image/*">
                            <i class="fa fa-user"></i>
-                           <span class="col-xs-12 uploadText" style="font-size: 22px; margin: 5px auto 20px;">Upload User Image</span>
+                           <span class="col-xs-12 uploadText no-text-select" style="font-size: 22px; margin: 5px auto 20px;">Upload User Image</span>
                            <canvas id="canvas" style="display: none;">
                               Your browser does not support the HTML5 canvas element.
                            </canvas>
@@ -113,13 +113,21 @@ $(document).ready(function(){
                         }
                      });
                      valid = true;
-                  } else { $("#error_userImage").addClass("error").text("Minimum Image size must be 250px X 250px!"); }
+                  } else { $("#error_userImage").addClass("error").text("Minimum Image size must be 250px X 250px!");valid = false; }
                };
                img.src = evt.target.result;
             };
             reader.readAsDataURL(this.files[0]);
-         } else { $("#error_userImage").addClass("error").text("Invalid file type! Please select an image file!"); }
-      } else { $("#error_userImage").addClass("error").text("No file selected!"); }
+         } else { $("#error_userImage").addClass("error").text("Invalid file type! Please select an image file!");valid = false; }
+      } else {
+        valid = false;
+        canvas.hide();
+        canvas.cropper('destroy');
+        $('.fa-user, .uploadText').show();
+        $('.tabWrapper').css("border", "1px solid #eee");
+        $(".uploadButton").text('Choose an Image');
+        $("#error_userImage").addClass("error").text("No file selected!");
+      }
    });
 
    $('#registerUserImage').on('submit', function(e){

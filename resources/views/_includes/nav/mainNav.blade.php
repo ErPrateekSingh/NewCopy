@@ -43,7 +43,7 @@
       <div class="navbar-collapse collapse navbar-right" id="navCollapse">
           {{-- @if (Route::current()->getName() != 'register') --}}
           {{-- @if ((Route::currentRouteName() != 'register') || (Route::currentRouteName() != 'login')) --}}
-          @if (!(Request::is('register') || Request::is('login') || Request::is('register/user/details')))
+          @if (!(Request::is('register') || Request::is('login') || Request::is('register/user/details')|| Request::is('register/user/image')))
             <form class="navbar-form navbar-left" role="search">
               <div data-ripple="rgba(0,0,0,0.5)" class="header-city-name" data-toggle="modal" data-target=".cityModal" title="Click to Change Your City">
                 <i class="fa fa-map-marker m-r-5"></i>{{ $cityName->city_name }}

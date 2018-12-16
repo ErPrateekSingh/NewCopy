@@ -32,7 +32,7 @@ Route::group(['middleware' => ['verified']], function() {
    //(OK) Route to get image upload page after redirected from the register/user/details page
    Route::get('register/user/image', 'RegisterUserController@getUserImageForm')->name('register.user.image');
    //(OK) Route to post image after upload from the register/user/images page
-   // Route::post('register/user/image', 'RegisterUserController@postUserImageForm')->name('register.user.image');
+   Route::post('register/user/image', 'RegisterUserController@postUserImageForm')->name('register.user.image');
 });
 
 //(OK) Route to get city using state_id through ajax request
