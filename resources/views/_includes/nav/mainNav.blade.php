@@ -84,7 +84,7 @@
                   </ul>
                </li>
                <li class="dropdown dd-user m-l-10">
-                  <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" title="{{ Auth::user()->fname .' '. Auth::user()->lname }}@if(Auth::user()->status_id>1)&#013;({{ '@'.$userImage[0]->username }})@endif">
+                  <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" title="{{ Auth::user()->fname .' '. Auth::user()->lname }}@if(Auth::user()->status_id>=1)&#013;({{ '@'.$userData[0]->username }})@endif">
                      @if(Auth::user()->image_id != null)
                         <span class="navbar-user-image" style="background-image: url({{ asset('storage/images/uploads/'.date_format($userImage[0]->created_at, 'Y').'/avatar/'.$userImage[0]->image_path) }});"></span>
                      @else
@@ -102,8 +102,8 @@
                            @endif
                         </div>
                         <div class="dd-menu-name text-trim m-t-5">{{ Auth::user()->fname .' '. Auth::user()->lname }}</div>
-                        @if(Auth::user()->status_id>1)
-                        <div class="dd-menu-username text-trim m-b-5">({{ '@'.$userImage[0]->username }})</div>
+                        @if(Auth::user()->status_id>=1)
+                        <div class="dd-menu-username text-trim m-b-5">({{ '@'.$userData[0]->username }})</div>
                         <!-- <div class="dd-menu-city text-trim">Allahabad, Uttar Pradesh, India</div> -->
                         @endif
                      </div>

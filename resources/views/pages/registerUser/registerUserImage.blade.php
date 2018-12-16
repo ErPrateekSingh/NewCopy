@@ -23,6 +23,11 @@
 <div class="container">
    <div class="row">
       <div class="col-md-10 col-md-offset-1 col-xs-12">
+        @if (Session::has('failed'))
+          <div class="alert alert-danger m-t-10"  role="alert">
+            <strong><i class="fa fa-exclamation-triangle m-r-10"></i>{{ Session::get('failed') }}</strong>
+          </div>
+        @endif
          <div class="panel panel-form clearfix" style="margin-top: 50px;border-color: #ccc;">
             <div class="panel-body">
                <div class="col-xs-10 col-xs-offset-1">

@@ -14,6 +14,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
       View::composer(['_includes.nav.mainNav' ,'welcome'], 'App\Http\Composers\ViewComposerCity');
+      View::composer(['_includes.nav.mainNav' ,'welcome'], 'App\Http\Composers\ViewComposerUserData');
     }
 
     /**

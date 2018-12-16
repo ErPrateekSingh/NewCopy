@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Image;
+Use Session;
 use App\State;
 use App\Profile;
 use App\Image as Img;
@@ -32,16 +33,27 @@ class RegisterUserController extends Controller
            'city'     => 'required|numeric',//validation rule for max min values
         ]);
 
-        $data = new Profile;
-        $data->user_id = Auth::user()->id;
-        $data->username = $request->username;
-        $data->dob = $request->dob;
-        $data->gender = $request->gender;
-        $data->state_id = $request->state;
-        $data->city_id = $request->city;
-        $data->save();
-        DB::table('users')->where('id', Auth::user()->id)->update(['status_id' => '1', 'updated_at' => \Carbon\Carbon::now()]);
-        return redirect()->route('register.user.image');
+        $result = DB::transaction(function () use ($request) {
+                      $data = new Profile;
+                      $data->user_id = Auth::user()->id;
+                      $data->username = $request->username;
+                      $data->dob = $request->dob;
+                      $data->gender = $request->gender;
+                      $data->state_id = $request->state;
+                      $data->city_id = $request->city;
+                      $data->save();
+                      DB::table('users')->where('id', Auth::user()->id)->update(['status_id' => '1', 'updated_at' => \Carbon\Carbon::now()]);
+                      return true;
+                  }, 5);
+
+        if($result){
+            // Return data for successful execution
+            return redirect()->route('register.user.image');
+        }else{
+            // Return data for unsuccessful execution
+            Session::flash('failed','Oops, Something went Wrong!');
+            return redirect()->route('register.user.details');
+        }
      }
 
      /*function to show image upload page after redirected from the register/user/details page*/
@@ -63,6 +75,7 @@ class RegisterUserController extends Controller
            if(!Storage::exists('/public/images/uploads/'.date("Y").'/avatar')) {
               Storage::makeDirectory('/public/images/uploads/'.date("Y").'/avatar', 0775, true); //creates directory for images upload
            }
+
            $cropped_value = $request->input("cropped_value"); // Width,height,x,y for cropping
            $cp_v = explode(",",$cropped_value); // Explode width,height,x,y
            $file = $request->file('userImage');
@@ -74,10 +87,25 @@ class RegisterUserController extends Controller
            $img->resize(250, 250)->save($location); // Resize Image & Save Image
            $img->resize(40, 40)->save($location_avtr); // Resize Image & Save Image for Avatar (Displays only 32X32)
 
-           $id = Img::insertGetId(['image_path' => $file_name, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]); // Save Image path in database
-           DB::table('image_user')->insert(['user_id' => Auth::user()->id, 'image_id' => $id, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]);
-           DB::table('profiles')->where('user_id', Auth::user()->id)->update(['image_id' => $id, 'updated_at' => \Carbon\Carbon::now()]);
-           return redirect()->route('home');
+
+           $result = DB::transaction(function () use ($file_name) {
+                       $id = Img::insertGetId(['image_path' => $file_name, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]); // Save Image path in database
+                       DB::table('image_user')->insert(['user_id' => Auth::user()->id, 'image_id' => $id, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]);
+                       DB::table('profiles')->where('user_id', Auth::user()->id)->update(['image_id' => $id, 'updated_at' => \Carbon\Carbon::now()]);
+                       return true;
+                     }, 5);
+
+           if($result){
+               // Return data for successful execution
+               return redirect()->route('home');
+           }else{
+               //Delete file if failed to execute query
+               // Storage::delete([$location, $location_avtr]);
+               
+               // Return data for unsuccessful execution
+               Session::flash('failed','Oops, Something went Wrong!');
+               return redirect()->route('register.user.image');
+           }
         }
      }
 }
