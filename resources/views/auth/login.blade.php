@@ -48,9 +48,8 @@
                            @endif
                         </div>
                      </div>
-                     @captcha
                      <div class="form-group form-group-mat" style="text-align:center;">
-                        <button type="submit" class="btn btn-primary" data-ripple="rgba(255,255,255,0.5)" style="width:40%; margin-top: 10px;">
+                        <button type="submit" id="loginButton" class="btn btn-primary" data-ripple="rgba(255,255,255,0.5)" style="width:40%; margin-top: 10px;">
                            Login
                         </button>
                      </div>
@@ -124,7 +123,16 @@ $(document).ready(function(){
    $('#password').on('blur',function(){($(this).val() == "")?field_clear("password"):Validate('password','password')});
    //Code for Register Form Submit STARTS
    // $('#loginForm').on('submit', function(e){ if(!validateForm()) e.preventDefault(); });
-   $('#loginForm').on('submit', _beforeSubmit = function(e){ if(!validateForm()) { e.preventDefault(); return false; } else { return true; } });
+   $('#loginForm').on('submit', _beforeSubmit = function(e){
+     if(!validateForm()) {
+       e.preventDefault();
+       return false;
+     } else {
+       $('button').attr('disabled', 'disabled');
+       $('button#loginButton').text("").append('<i class="fa fa-spin fa-circle-o-notch m-r-10"></i>Please Wait...');
+       return true;
+     }
+   });
 });
 </script>
 @endsection

@@ -16,6 +16,6 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-// Route::middleware('auth:api')->group(function () {
-//    Route::get('/username/unique', 'RegistrationController@apiCheckUniqueUserName')->name('api.username.unique');
-// });
+Route::middleware('auth:api')->group(function () {
+   Route::post('/username/unique', 'AjaxRequestController@apiCheckUniqueUserName')->name('api.username.unique');
+});

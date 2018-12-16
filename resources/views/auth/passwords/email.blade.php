@@ -26,6 +26,7 @@
                            <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
                         @endif
                      </div>
+                     @captcha
                      <div class="form-group form-group-mat" style="text-align:center;">
                         <button type="submit" class="btn btn-primary" data-ripple="rgba(255,255,255,0.5)" style="width:95%; margin-top: 10px;">
                            Send Password Reset Link

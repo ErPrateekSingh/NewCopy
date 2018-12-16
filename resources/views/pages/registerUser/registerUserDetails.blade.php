@@ -70,7 +70,7 @@
                                     <select class="form-control" id="state" name="state">
                                        <option value="" disabled selected>Select State</option>
                                        @foreach($states as $states)
-                                          <option value="{{ $states->state_id }}" {{ (collect(old('state'))->contains($states->state_id)) ? 'selected':'' }}>{{ $states->state_name }}</option>
+                                          <option value="{{ $states->id }}" {{ (collect(old('state'))->contains($states->id)) ? 'selected':'' }}>{{ $states->state_name }}</option>
                                        @endforeach
                                     </select>
                                     <label for="state" class="control-label"><i class="fa fa-map m-r-5"></i> State</label><i class="bar"></i>
@@ -142,7 +142,7 @@
       var state = 'state_id='+$('#state').val();
       $("#city").append('<option value="" disabled selected>Please Wait...</option>');
       $.ajax({
-         type:'GET',
+         type:'POST',
          url: "/get/city",
          data: state,
          success: function(data){
@@ -150,7 +150,7 @@
                $("#city").empty();
                $("#city").append('<option value="" disabled selected>Select City</option>');
                $.each(data,function(value){
-                  $("#city").append('<option value="'+data[value].city_id+'">'+data[value].city_name+'</option>');
+                  $("#city").append('<option value="'+data[value].id+'">'+data[value].city_name+'</option>');
                });
             }else{
                $("#city").empty();
@@ -167,10 +167,10 @@
          if (!usernameValid) currentXhr.abort();
          currentXhr && currentXhr.readyState != 4 && currentXhr.abort(); // clear previous request
          var currentXhr = $.ajax({
-            type:'get',
+            type:'post',
             url: "/api/username/unique",
             data: link,
-            contentType: 'application/json',
+            // contentType: 'application/json',
             success: function(data) {
                if (usernameValid) {
                   if (data=="true") field_success("username");
@@ -228,7 +228,7 @@
             $("#username").closest("div").removeClass("has-error has-success has-feedback");
          }
       });
-      $("#dob").datepicker({ changeYear: true, changeMonth: true, dateFormat: "yy-mm-dd", yearRange: "c-85:c-0" }).click(function(){if($("#dob").val()=='')$("#dob").val(" ");});
+      $("#dob").datepicker({ changeYear: true, changeMonth: true, dateFormat: "dd-mm-yy", yearRange: "c-85:c-0" }).click(function(){if($("#dob").val()=='')$("#dob").val(" ");});
       $('#state').change(function(){ajaxGetCity();});
       $('#registerUserDetails').on('submit', function(e){ if(!validateForm()) e.preventDefault(); });
    });

@@ -41,15 +41,19 @@
       </div>
       <!-- <div class="navbar-collapse collapse navbar-responsive-collapse navbar-right" id="navCollapse"> -->
       <div class="navbar-collapse collapse navbar-right" id="navCollapse">
-         <form class="navbar-form navbar-left" role="search">
-            <div data-ripple="rgba(0,0,0,0.5)" class="header-city-name" data-toggle="modal" data-target=".cityModal" title="Click to Change Your City">
-               <i class="fa fa-map-marker m-r-5"></i>{{ $cityName->city_name }}
-            </div>
-            <div class="form-group">
-               <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button data-ripple type="submit" class="headerSubmit flatButton btn-red"><i class="fa fa-search"></i></button>
-         </form>
+          {{-- @if (Route::current()->getName() != 'register') --}}
+          {{-- @if ((Route::currentRouteName() != 'register') || (Route::currentRouteName() != 'login')) --}}
+          @if (!(Request::is('register') || Request::is('login') || Request::is('register/user/details')))
+            <form class="navbar-form navbar-left" role="search">
+              <div data-ripple="rgba(0,0,0,0.5)" class="header-city-name" data-toggle="modal" data-target=".cityModal" title="Click to Change Your City">
+                <i class="fa fa-map-marker m-r-5"></i>{{ $cityName->city_name }}
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button data-ripple type="submit" class="headerSubmit flatButton btn-red"><i class="fa fa-search"></i></button>
+            </form>
+          @endif
          <ul class="nav navbar-nav">
             <li><a  data-ripple="rgba(0,0,0,0.5)" href="#" class="" title="Add Free Listing"><i class="fa fa-plus-circle m-r-5"></i>Add Free Listing</a></li> <!--Add {  -{ route('register.profile.category') }-}-->
             @guest()

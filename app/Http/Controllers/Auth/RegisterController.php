@@ -29,8 +29,9 @@ class RegisterController extends Controller
      * @var string
      */
 
-    protected $redirectTo = '/home';/* Redirected to '/user/details' page rather than '/home' */
+    // protected $redirectTo = '/home';/* Redirected to '/user/details' page rather than '/home' */
     // protected $redirectTo = '/register/user/details';/* Redirected to '/user/details' page rather than '/home' */
+    protected $redirectTo = '/email/verify';/* Redirected to '/email/verify' page rather than '/home' */
 
     /**
      * Create a new controller instance.

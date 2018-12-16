@@ -12655,7 +12655,7 @@ div::-webkit-scrollbar-thumb:active {
 .ui-datepicker {
   margin-top: 2px;
   width: 20em !important;
-  z-index: 10 !important;
+  z-index: 9999 !important;
 }
 
 .ui-datepicker .ui-datepicker-header {
