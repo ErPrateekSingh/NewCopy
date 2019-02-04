@@ -6,12 +6,16 @@
       <div class="mainWrapper">
          <div class="profileUpperWrapper clearfix">
             <div class="profileUserImage">
-               <img src="http://localhost:8000/storage/images/uploads/2018/ls.jpg" alt="User Image">
+               @if($userComposer)
+               <img src="{{ asset('storage/images/uploads/'.date_format($userComposer->created_at, 'Y').'/'.$userComposer->image_path) }}" alt="User Image">
+               @else
+               <span class="image_text"></span>
+               @endif
             </div>
             <div class="profileNameWrapper">
-               <div class="profileName">Emmely Rose</div>
-               <a href="{{ route('profilePage', 'EmmelyRose') }}">@EmmelyRose</a>
-               <button data-ripple class="followButton flatButton btn-red" type="button" name="followButton">Follow @EmmelyRose</button>
+               <div class="profileName">{{ Auth::user()->fname .' '. Auth::user()->lname }}</div>
+               <a href="{{ route('profilePage', $userComposer->username) }}">{{ '@'.$userComposer->username }}</a>
+               <button data-ripple class="followButton flatButton btn-red" type="button" name="followButton">Follow {{ '@'.$userComposer->username }}</button>
             </div>
             <div class="profileDetailsWrapper">
                <div class="profileStat clearfix">

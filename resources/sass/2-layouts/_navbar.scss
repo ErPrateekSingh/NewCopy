@@ -62,6 +62,13 @@
       &:hover, &:focus, &:active {
          border-bottom-color: $theme-red-dark;
       }
+      &.active {
+        border-bottom-color: $theme-red-dark;
+        a, a:hover {
+          color: #333;
+          background-color: transparent;
+        }
+      }
       &.dropdown {
          > .btn {
             border: 0px;
@@ -71,8 +78,8 @@
                color: #333;
                border: 0px;
                box-shadow: none;
-               border-bottom-color: $theme-red-dark;
                background-color: transparent;
+               border-bottom-color: $theme-red-dark;
             }
             .navbar-user-image{
                float: left;

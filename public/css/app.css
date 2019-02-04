@@ -12336,7 +12336,8 @@ fieldset {
 
 /*Classes for Specific action*/
 
-.no-text-select {
+.no-text-select,
+.image_text {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -12494,7 +12495,7 @@ textarea {
 body {
   width: 360px;
   min-width: 360px;
-  padding-top: 60px;
+  padding-top: 56px;
   width: auto !important;
   background-color: #fff;
 }
@@ -12795,6 +12796,16 @@ div::-webkit-scrollbar-thumb:active {
   border-bottom-color: #f5454f;
 }
 
+.navbar .navbar-nav > li.active {
+  border-bottom-color: #f5454f;
+}
+
+.navbar .navbar-nav > li.active a,
+.navbar .navbar-nav > li.active a:hover {
+  color: #333;
+  background-color: transparent;
+}
+
 .navbar .navbar-nav > li.dropdown > .btn {
   border: 0px;
   background-color: #fff;
@@ -12808,8 +12819,8 @@ div::-webkit-scrollbar-thumb:active {
   border: 0px;
   -webkit-box-shadow: none;
           box-shadow: none;
-  border-bottom-color: #f5454f;
   background-color: transparent;
+  border-bottom-color: #f5454f;
 }
 
 .navbar .navbar-nav > li.dropdown > .btn .navbar-user-image {
@@ -14679,9 +14690,24 @@ footer {
 }
 
 #homeLeft .homeUserImage img {
-  width: 150px;
-  height: 150px;
-  margin: 0px 35px;
+  width: 120px;
+  height: 120px;
+  margin: 0 50px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+#homeLeft .homeUserImage span {
+  width: 120px;
+  height: 120px;
+  margin: 0 50px;
+  border-radius: 50%;
+  color: #fff;
+  display: block;
+  font-size: 75px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #f4545f;
 }
 
 #homeLeft .homeUserFullName {
@@ -14689,13 +14715,13 @@ footer {
   display: block;
   font-size: 20px;
   text-align: center;
-  margin: 10px 15px 0px;
+  margin: 10px 15px 0;
 }
 
 #homeLeft .homeUserName {
   color: #999;
   display: block;
-  margin: 0px 15px;
+  margin: 0 15px;
   text-align: center;
 }
 
@@ -14713,9 +14739,9 @@ footer {
   border-color: transparent;
 }
 
-#homeLeft .homeSidebarItems a:hover,
+#homeLeft .homeSidebarItems a:active,
 #homeLeft .homeSidebarItems a:focus,
-#homeLeft .homeSidebarItems a:active {
+#homeLeft .homeSidebarItems a:hover {
   border-color: #f4545f;
   background-color: rgba(0, 0, 0, 0.05);
 }
@@ -14749,7 +14775,7 @@ footer {
 
   #homeRight {
     width: 320px;
-    padding: 0px 10px;
+    padding: 0 10px;
   }
 
   #homeRight > .UW {
@@ -14766,7 +14792,7 @@ footer {
 
   #homeRight {
     width: 350px;
-    padding: 0px 7px;
+    padding: 0 7px;
   }
 
   #homeRight > .UW {
@@ -15037,6 +15063,8 @@ footer {
 
 .profileUpperWrapper .profileUserImage {
   float: left;
+  width: 200px;
+  height: 200px;
   margin-top: 80px;
   margin-right: 40px;
   margin-bottom: 80px;
@@ -15045,8 +15073,8 @@ footer {
 }
 
 .profileUpperWrapper .profileUserImage img {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
 }
 
 .profileUpperWrapper .profileNameWrapper {

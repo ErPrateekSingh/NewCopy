@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -20,12 +21,21 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    protected function authenticated()
+    {
+        if (Auth::user()->status_id >= 2) {
+          return redirect('/home');
+        } else {
+          return redirect()->route('register.user.details');
+        }
+    }
+
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.

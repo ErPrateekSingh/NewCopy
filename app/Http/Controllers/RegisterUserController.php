@@ -58,11 +58,14 @@ class RegisterUserController extends Controller
 
      /*function to show image upload page after redirected from the register/user/details page*/
      public function getUserImageForm() {
-       $user = Profile::select('image_id')->where('user_id',Auth::user()->id)->first();
-      if($user){
-         if ($user->image_id) return redirect()->route('home');
-         else return view('pages.registerUser.registerUserImage');
-       } else { return redirect()->route('register.user.details'); }
+        $user = Auth::user()->status_id;
+
+        // $user = Profile::select('image_id')->where('user_id',Auth::user()->id)->first();
+        if($user == 1) return view('pages.registerUser.registerUserImage');
+        else {
+          if($user > 1) return redirect()->route('home');
+          else return redirect()->route('register.user.details');
+        }
      }
 
      /*function to post image after upload from the register/user/images page*/
@@ -89,9 +92,10 @@ class RegisterUserController extends Controller
 
 
            $result = DB::transaction(function () use ($file_name) {
-                       $id = Img::insertGetId(['image_path' => $file_name, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]); // Save Image path in database
+                       $id = Img::insertGetId(['image_path' => $file_name, 'image_source' => 'self', 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]); // Save Image path in database
                        DB::table('image_user')->insert(['user_id' => Auth::user()->id, 'image_id' => $id, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]);
                        DB::table('profiles')->where('user_id', Auth::user()->id)->update(['image_id' => $id, 'updated_at' => \Carbon\Carbon::now()]);
+                       DB::table('users')->where('id', Auth::user()->id)->update(['status_id' => '2', 'updated_at' => \Carbon\Carbon::now()]);
                        return true;
                      }, 5);
 
@@ -101,7 +105,7 @@ class RegisterUserController extends Controller
            }else{
                //Delete file if failed to execute query
                // Storage::delete([$location, $location_avtr]);
-               
+
                // Return data for unsuccessful execution
                Session::flash('failed','Oops, Something went Wrong!');
                return redirect()->route('register.user.image');

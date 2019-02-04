@@ -1,10 +1,12 @@
 <?php
+
 namespace App\Providers;
+use View;
+use Jenssegers\Agent\Agent;
 
 use Illuminate\Support\ServiceProvider;
-use View;
 
-class ComposerServiceProvider extends ServiceProvider
+class AgentServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
@@ -13,8 +15,8 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-      View::composer(['_includes.nav.mainNav','welcome'], 'App\Http\Composers\ViewComposerCity');
-      View::composer(['_includes.nav.mainNav','home','pages.userPages.profile'], 'App\Http\Composers\ViewComposerUserData');
+        $agent = new Agent();
+        View::share('agent', $agent);
     }
 
     /**

@@ -25,7 +25,7 @@ class ViewComposerCity
     //       ->select('city_id', 'city_name')
     //       ->where("city_id",$ctid)
     //       ->first());
-    $view->with('cityName',DB::table("cities")
+    $view->with('cityComposer',DB::table("cities")
           ->select('id', 'city_name')
           ->where("id",125)
           ->first());

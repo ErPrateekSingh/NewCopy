@@ -31903,7 +31903,7 @@ $('[data-toggle=modal]').on('click', function (e) {
 // code to display First Letter of Name In Header
 
 $(function () {
-  $('.image_text').text($('#userName').text().charAt(0));
+  $('.image_text').text($('#userFirstName').text().charAt(0));
 }); // code to display tooltip
 
 $(function () {

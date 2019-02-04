@@ -171,6 +171,7 @@ return [
         /*
          * Package Service Providers...
          */
+        App\Providers\AgentServiceProvider::class,
 
         /*
          * Application Service Providers...
