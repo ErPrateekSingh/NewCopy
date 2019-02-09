@@ -18,8 +18,6 @@ Auth::routes(['verify' => true]);
 //(OK) Routes to get the page registration page
 // Route::get('/register/page', 'RegisterPageController@index')->name('register.page.index');
 
-//(OK) Route for registered user profile page
-Route::get('/{username}', 'ProfileController@showProfilePage')->name('profilePage')->where('username', '[\w\d]+');
 
 //(OK) Routes to check if user is verified before displaying the pages
 Route::group(['middleware' => ['verified']], function() {
@@ -34,6 +32,9 @@ Route::group(['middleware' => ['verified']], function() {
    //(OK) Route to post image after upload from the register/user/images page
    Route::post('register/user/image', 'RegisterUserController@postUserImageForm')->name('register.user.image');
 });
+
+//(OK) Route for registered user profile page
+Route::get('/{username}', 'ProfileController@showProfilePage')->name('profilePage')->where('username', '[\w\d]+');
 
 //(OK) Route to get city using state_id through ajax request
 Route::post('/get/city', 'AjaxRequestController@ajaxGetCity')->name('get.city');

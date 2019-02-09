@@ -10,6 +10,7 @@
 }
 /*Classes for Containers*/
 .mainWrapper {
+  height: 100%;
    margin: 0 auto;
    display: block;
    position: relative;
@@ -21,6 +22,12 @@
       clear: both;
    }
 }
+
+.mainSidebarRight {
+  float: right;
+}
+
+//------------------------------------------------//
 .mainContentLeft {
    float: left;
    // border-right: 1px solid #ccc;
@@ -30,9 +37,6 @@
    border-right: 1px solid #ccc;
 }
 .mainSidebarLeft {
-   float: left;
-}
-.mainSidebarRight {
    float: left;
 }
 
@@ -55,8 +59,19 @@
 @media (min-width: 768px) and (max-width: 1199px) {}
 @media (min-width: 1200px) {
    .mainWrapper {
-      width: 1040px;
+      // width: 1040px;
+      width: 1150px;// Used on Profile page
    }
+   .mainSidebarRight {
+     width: 300px;
+   }
+   // Unwanted Elements
+   .trialBox {
+     width: 300px;
+     height: 280px;
+     padding-top: 105px;
+   }
+   //------------------------------------------------//
    .mainContentLeft {
       // padding-left: 20px;
       // padding-right: 20px;
@@ -68,18 +83,7 @@
    }
    .mainSidebarLeft {
    }
-   .mainSidebarRight {
-      width: 355px;
-      padding-left : 15px;
-   }
 
-   // Unwanted Elements
-   .trialBox {
-      // width: 336px;
-      width: 340px;
-      height: 280px;
-      padding-top: 105px;
-   }
 }
 
 

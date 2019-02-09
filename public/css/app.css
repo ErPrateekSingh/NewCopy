@@ -12355,6 +12355,7 @@ fieldset {
 /*Classes for Containers*/
 
 .mainWrapper {
+  height: 100%;
   margin: 0 auto;
   display: block;
   position: relative;
@@ -12370,6 +12371,10 @@ fieldset {
   clear: both;
 }
 
+.mainSidebarRight {
+  float: right;
+}
+
 .mainContentLeft {
   float: left;
 }
@@ -12383,10 +12388,6 @@ fieldset {
   float: left;
 }
 
-.mainSidebarRight {
-  float: left;
-}
-
 .trialBox {
   color: #777;
   font-size: 40px;
@@ -12397,23 +12398,22 @@ fieldset {
 
 @media (min-width: 1200px) {
   .mainWrapper {
-    width: 1040px;
+    width: 1150px;
+  }
+
+  .mainSidebarRight {
+    width: 300px;
+  }
+
+  .trialBox {
+    width: 300px;
+    height: 280px;
+    padding-top: 105px;
   }
 
   .mainContentLeft {
     width: 685px;
     padding-right: 14px;
-  }
-
-  .mainSidebarRight {
-    width: 355px;
-    padding-left: 15px;
-  }
-
-  .trialBox {
-    width: 340px;
-    height: 280px;
-    padding-top: 105px;
   }
 }
 
@@ -12497,7 +12497,6 @@ body {
   min-width: 360px;
   padding-top: 56px;
   width: auto !important;
-  background-color: #fff;
 }
 
 html {
@@ -15054,279 +15053,379 @@ footer {
   }
 }
 
-.profileUpperWrapper {
+.profileCanopy {
   width: 100%;
-  display: block;
   position: relative;
-  margin: 0 auto;
+  -webkit-transition: height 0.3s;
+  transition: height 0.3s;
 }
 
-.profileUpperWrapper .profileUserImage {
-  float: left;
-  width: 200px;
-  height: 200px;
-  margin-top: 80px;
-  margin-right: 40px;
-  margin-bottom: 80px;
-  display: inline-block;
-  border: 1px solid #ccc;
+.profileCanopy .profileCanopyBody {
+  z-index: 4;
+  width: 100%;
+  height: 195px;
+  position: relative;
 }
 
-.profileUpperWrapper .profileUserImage img {
+.profileCanopy .profileCanopyBody .profileCanopyHeader {
+  z-index: 3;
+  height: 195px;
+  max-width: 2560px;
+  position: relative;
+  -webkit-transition: height 0.3s;
+  transition: height 0.3s;
+  background-color: #fddddf;
+}
+
+.profileCanopy .profileCanopyBody .profileCanopyHeader:before {
+  z-index: 1;
+  width: 100%;
+  content: "";
+  height: 100%;
+  display: block;
+  position: absolute;
+  -webkit-box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.profileCanopy .profileCanopyBody .profileCanopyHeader .profileCanopyHeaderBg {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.profileCanopy .profileCanopyBody .profileCanopyHeader .profileCanopyHeaderBg img {
+  left: 0;
+  right: 0;
+  border: 0;
+  width: 100%;
+  top: -9999px;
+  margin: auto 0;
+  bottom: -9999px;
+  position: absolute;
+}
+
+.profileCanopy .profileCanopyBody .profileCanopyHeader .profileUserAvatar {
+  z-index: 3;
+  bottom: -80px;
+  position: absolute;
+  -webkit-transition: bottom 0.3s;
+  transition: bottom 0.3s;
+}
+
+.profileCanopy .profileCanopyBody .profileCanopyHeader .profileUserAvatar .profileUserImage {
+  width: 180px;
+  height: 180px;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+  border: 3px solid #ddd;
+}
+
+.profileCanopy .profileCanopyBody .profileCanopyHeader .profileUserAvatar img {
+  outline: 0;
   width: 100%;
   height: 100%;
+  display: block;
+  border-radius: 50%;
 }
 
-.profileUpperWrapper .profileNameWrapper {
-  float: left;
-  margin-top: 115px;
+.profileCanopy .profileNavbar {
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid #ccc;
+  z-index: 1;
+  position: relative;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+.profileCanopy .profileNavbar .profileNavbarList {
+  height: 60px;
+  position: relative;
+}
+
+.profileCanopy .profileNavbar .profileNavbarList ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.profileCanopy .profileNavbar .profileNavbarList ul li {
   display: inline-block;
 }
 
-.profileUpperWrapper .profileNameWrapper .profileName {
-  font-size: 32px;
-  margin-bottom: -5px;
-}
-
-.profileUpperWrapper .profileNameWrapper a {
+.profileCanopy .profileNavbar .profileNavbarList ul li a {
   color: #555;
-  display: block;
-  font-size: 16px;
-}
-
-.profileUpperWrapper .profileNameWrapper .followButton {
-  font-size: 16px;
-  margin-top: 25px;
-  font-weight: 500;
-  padding: 8px 20px;
-}
-
-.profileUpperWrapper .profileDetailsWrapper {
-  float: right;
-  width: 275px;
-  font-size: 14px;
-  margin-top: 80px;
-}
-
-.profileUpperWrapper .profileDetailsWrapper .profileStat {
-  width: 100%;
-}
-
-.profileUpperWrapper .profileDetailsWrapper .profileStat .profileStatItem {
-  float: left;
-  width: 33.33%;
-  font-size: 18px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.profileUpperWrapper .profileDetailsWrapper .profileStat .profileStatItem p {
-  font-size: 15px;
-}
-
-.profileUpperWrapper .profileDetailsWrapper ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  padding-left: 15px;
-}
-
-.profileUpperWrapper .profileDetailsWrapper ul li {
-  margin-top: 5px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.profileNav {
-  width: 100%;
-  height: 50px;
-  font-size: 16px;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-
-.profileNav a {
-  color: #555;
-  width: 110px;
+  width: 90px;
+  line-height: 1.4;
   margin-left: 10px;
+  position: relative;
   text-align: center;
   margin-right: 10px;
-  padding: 12px 0px 9px;
+  padding: 10px 0 6px;
   display: inline-block;
   text-decoration: none;
   border-bottom: 3px solid;
   border-bottom-color: transparent;
 }
 
-.profileNav a:hover,
-.profileNav a:active,
-.profileNav a:focus {
+.profileCanopy .profileNavbar .profileNavbarList ul li a:active,
+.profileCanopy .profileNavbar .profileNavbarList ul li a:focus,
+.profileCanopy .profileNavbar .profileNavbarList ul li a:hover {
   color: #777;
   border-bottom-color: #f4545f;
 }
 
-.profileNav .active {
+.profileCanopy .profileNavbar .profileNavbarList ul li a .profileNavLabel {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1.1px;
+}
+
+.profileCanopy .profileNavbar .profileNavbarList ul li a .profileNavValue {
+  font-size: 16px;
+  display: block;
+  font-weight: bold;
+}
+
+.profileCanopy .profileNavbar .profileNavbarList ul li .active {
   color: #777;
   border-bottom-color: #f4545f;
 }
 
-.profileReviewWrapper {
-  margin-top: 45px;
-  margin-bottom: 5px;
-  padding-right: 25px;
+.profileCanopy .profileNavbar .profileNavbarList ul li .navFollowButton {
+  height: 40px;
+  font-size: 16px;
+  max-width: 300px;
+  margin-top: 10px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 20px;
 }
 
-.profileReviewWrapper img {
-  width: 120px;
-  height: 90px;
+.profileAreaLeft {
+  width: 230px;
   float: left;
 }
 
-.profileReviewWrapper .profileReviewDetails {
-  display: inline-block;
-  margin-left: 15px;
+.profileAreaLeft .profileBioWrapper {
+  height: auto;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #d7edfb;
 }
 
-.profileReviewWrapper .profileReviewDetails .profileReviewBizName {
+.profileAreaLeft .profileBioWrapper .profileName {
+  color: #555;
+  font-size: 20px;
+  display: block;
+  margin-bottom: -3px;
+}
+
+.profileAreaLeft .profileBioWrapper .profileUserName a,
+.profileAreaLeft .profileBioWrapper .profileUserWebsite a {
+  color: #777;
+  display: block;
+  font-size: 14px;
+}
+
+.profileAreaLeft .profileBioWrapper .profileUserDob,
+.profileAreaLeft .profileBioWrapper .profileUserJoined,
+.profileAreaLeft .profileBioWrapper .profileUserLocation,
+.profileAreaLeft .profileBioWrapper .profileUserWebsite {
+  margin-bottom: 3px;
+}
+
+.profileAreaLeft .profileBioWrapper .profileUserWebsite a {
+  display: inline-block;
+}
+
+.profileAreaLeft .profilePhotoWrapper {
+  height: auto;
+  background-color: #fff;
+  border: 1px solid #d7edfb;
+}
+
+.profileAreaLeft .profilePhotoWrapper .profilePhotoHeader {
+  font-size: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.profileAreaLeft .profilePhotoWrapper .profilePhotoHeader a {
+  color: #555;
+}
+
+.profileAreaLeft .profilePhotoWrapper .profilePhotoContainer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profileAreaLeft .profilePhotoWrapper .profilePhotoContainer ul li {
+  display: inline-block;
+  float: left;
+  margin: 3px;
+  width: 72px;
+  height: 54px;
+  margin-top: 0px;
+  margin-right: 0px;
+}
+
+.profileAreaLeft .profilePhotoWrapper .profilePhotoContainer ul li a:hover {
+  opacity: 0.8;
+}
+
+.profileAreaLeft .profilePhotoWrapper .profilePhotoContainer ul li a img {
+  width: 100%;
+  height: 100%;
+}
+
+.profileAreaLeft .profileFollowerWrapper {
+  height: auto;
+  background-color: #fff;
+  border: 1px solid #d7edfb;
+}
+
+.profileAreaLeft .profileFollowerWrapper .profileFollowerHeader {
+  font-size: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.profileAreaLeft .profileFollowerWrapper .profileFollowerHeader a {
+  color: #555;
+}
+
+.profileAreaLeft .profileFollowerWrapper .profileFollowerContainer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profileAreaLeft .profileFollowerWrapper .profileFollowerContainer ul li {
+  float: left;
+  margin: 3px;
+  width: 42px;
+  height: 42px;
+  margin-top: 0px;
+  margin-right: 0px;
+  display: inline-block;
+}
+
+.profileAreaLeft .profileFollowerWrapper .profileFollowerContainer ul li a:hover {
+  opacity: 0.8;
+}
+
+.profileAreaLeft .profileFollowerWrapper .profileFollowerContainer ul li a img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.profileAreaCenter {
+  float: left;
+  height: auto;
+  width: 600px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 20px 15px;
+  background-color: #fff;
+  border: 1px solid #d7edfb;
+}
+
+.profileAreaCenter .profileReviewHeader {
+  font-size: 20px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.profileAreaCenter .profileReviewWrapper {
+  margin-top: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.profileAreaCenter .profileReviewWrapper img {
+  float: left;
+  width: 120px;
+  height: 90px;
+}
+
+.profileAreaCenter .profileReviewWrapper .profileReviewDetails {
+  width: 275px;
+  margin-left: 15px;
+  display: inline-block;
+}
+
+.profileAreaCenter .profileReviewWrapper .profileReviewDetails .profileReviewBizName {
   display: block;
   font-size: 18px;
   line-height: 1.1;
 }
 
-.profileReviewWrapper .profileReviewDetails .profileReviewTags {
+.profileAreaCenter .profileReviewWrapper .profileReviewDetails .profileReviewTags {
   font-size: 12px;
 }
 
-.profileReviewWrapper .profileReviewDetails span {
+.profileAreaCenter .profileReviewWrapper .profileReviewDetails span {
   float: none;
   display: block;
   font-size: 12px;
   line-height: 1.4;
 }
 
-.profileReviewWrapper .profileReviewDetails .profileReviewStars {
+.profileAreaCenter .profileReviewWrapper .profileReviewDetails .profileReviewStars {
   color: #ffd54f;
   font-size: 18px;
   line-height: 1.4;
   margin-bottom: 3px;
 }
 
-.profileReviewWrapper span {
+.profileAreaCenter .profileReviewWrapper span {
   float: right;
   font-size: 12px;
 }
 
-.profileReviewWrapper .profileReviewBody {
+.profileAreaCenter .profileReviewWrapper .profileReviewBody {
   color: #555;
   margin-top: 15px;
-  margin-left: 50px;
+  margin-left: 35px;
 }
 
-.profileReviewWrapper .profileReviewBody .profileReviewTools {
+.profileAreaCenter .profileReviewWrapper .profileReviewBody p a {
+  font-weight: bold;
+}
+
+.profileAreaCenter .profileReviewWrapper .profileReviewBody .profileReviewTools {
   float: right;
   display: block;
-  margin-right: 100px;
+  margin-right: 30px;
 }
 
-.profileReviewWrapper .profileReviewBody .profileReviewTools span {
+.profileAreaCenter .profileReviewWrapper .profileReviewBody .profileReviewTools span {
   float: left;
   cursor: pointer;
   padding: 3px 7px;
 }
 
-.profilePhotoWrapper {
-  margin-top: 45px;
-  padding-left: 25px;
-  margin-bottom: 45px;
-  padding-right: 25px;
-}
-
-.profilePhotoWrapper ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.profilePhotoWrapper ul li {
-  display: inline-block;
-}
-
-.profilePhotoWrapper ul li a {
-  margin: 3px;
-  width: 125px;
-  height: 125px;
-  display: block;
-  background-color: #deeaf5;
-}
-
-.profilePhotoWrapper ul li a:hover {
-  opacity: 0.8;
-}
-
-.profilePhotoWrapper ul li a i {
-  color: #bbb;
-  z-index: -1;
-  font-size: 40px;
-  margin-top: 43px;
-  margin-left: 45px;
-}
-
-.profileFollowerWrapper {
-  margin-top: 45px;
-  padding-left: 25px;
-  margin-bottom: 5px;
-  padding-right: 25px;
-}
-
-.profileFollowerWrapper .profileFollowerBody {
-  float: left;
-  height: 100px;
-  display: inline-block;
-}
-
-.profileFollowerWrapper .profileFollowerBody img {
-  float: left;
-  width: 60px;
-  height: 60px;
-  margin-right: 12px;
-  display: inline-block;
-}
-
-.profileFollowerWrapper .profileFollowerBody .profileFollowerDetails {
-  display: inline-block;
-}
-
-.profileFollowerWrapper .profileFollowerBody .profileFollowerDetails .profileFollowerName {
-  display: block;
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 500;
-}
-
-.profileFollowerWrapper .profileFollowerBody .profileFollowerDetails .profileFollowerUsername {
-  display: block;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.profileFollowerWrapper .profileFollowerBody .profileFollowerDetails span {
-  display: block;
-  font-size: 12px;
-  margin-top: 3px;
-}
-
-.profileFollowerWrapper .profileFollowerBody .profileFollowerButton {
+.profileAreaRight {
+  width: 300px;
   float: right;
-  margin-top: 10px;
-  padding: 4px 10px;
-}
-
-@media (min-width: 1200px) {
-  .profileFollowerWrapper .profileFollowerBody {
-    width: 50%;
-    padding: 20px;
-  }
+  height: auto;
 }
 
 .verifyWrapper {

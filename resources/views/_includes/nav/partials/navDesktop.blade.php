@@ -84,8 +84,7 @@
                       @endif
                   </div>
                   <div class="dd-menu-footer clearfix">
-                      <a data-ripple class="btn btn-red pull-left" href="#">Profile</a>
-                      <!--Profile page to be added-->
+                      <a data-ripple class="btn btn-red pull-left" href="{{ route('profilePage', $userComposer->username) }}">Profile</a>
                       <a class="btn btn-default pull-right" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                           Logout
                       </a>
