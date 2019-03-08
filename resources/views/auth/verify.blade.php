@@ -12,7 +12,7 @@
                 <h3>Verify Your Email Address</h3>
                 @if (session('resent'))
                 <div class="alert alert-success" role="alert">
-                    <p>A fresh/new verification link has been sent to your email address.</p>
+                    <p>A New verification link has been sent to your email address.</p>
                 </div>
                 @endif
                 <p>We've just sent an Email to <strong>{{ Auth::user()->email }}</strong></p>

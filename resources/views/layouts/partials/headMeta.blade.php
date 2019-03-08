@@ -5,12 +5,6 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>{{ config('app.name', 'Zendur') }}</title>
-
-<meta name="description" content=""><!--To be added Later-->
-<meta name="keywords" content=""><!--To be added Later-->
-<meta name="author" content=""><!--To be added Later-->
-
 <meta name="robots" content="index, follow">
 <!--To be checked and modify Later-->
 <meta name="mobile-web-app-capable" content="yes">

@@ -43,6 +43,7 @@ class RegisterUserController extends Controller
                       $data->city_id = $request->city;
                       $data->save();
                       DB::table('users')->where('id', Auth::user()->id)->update(['status_id' => '1', 'updated_at' => \Carbon\Carbon::now()]);
+                      DB::table('profile_stats')->insert(['user_id' => Auth::user()->id, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]);
                       return true;
                   }, 5);
 
@@ -75,16 +76,16 @@ class RegisterUserController extends Controller
         ]);
 
         if ($request->hasFile('userImage')) {
-           if(!Storage::exists('/public/images/uploads/'.date("Y").'/avatar')) {
-              Storage::makeDirectory('/public/images/uploads/'.date("Y").'/avatar', 0775, true); //creates directory for images upload
+           if(!Storage::exists('/public/images/uploads/'.date("Y").'/'.date("m").'/avatar')) {
+              Storage::makeDirectory('/public/images/uploads/'.date("Y").'/'.date("m").'/avatar', 0775, true); //creates directory for images upload
            }
 
            $cropped_value = $request->input("cropped_value"); // Width,height,x,y for cropping
            $cp_v = explode(",",$cropped_value); // Explode width,height,x,y
            $file = $request->file('userImage');
-           $file_name = time() . '.' . $file->getClientOriginalExtension(); // Get Cropped Image Extention
-           $location = storage_path('/app/public/images/uploads/'.date("Y").'/'.$file_name); //Cropped Image Upload Path
-           $location_avtr = storage_path('/app/public/images/uploads/'.date("Y").'/avatar/'.$file_name); //Cropped Image Upload Path for Avatar
+           $file_name = mt_rand().'_'.time() . '.' . $file->getClientOriginalExtension(); // Get Cropped Image Extention
+           $location = storage_path('/app/public/images/uploads/'.date("Y").'/'.date("m").'/'.$file_name); //Cropped Image Upload Path
+           $location_avtr = storage_path('/app/public/images/uploads/'.date("Y").'/'.date("m").'/avatar/'.$file_name); //Cropped Image Upload Path for Avatar
            $img = Image::make($file->getRealPath());
            $img->crop($cp_v[0],$cp_v[1],$cp_v[2],$cp_v[3]); // Crop Image
            $img->resize(250, 250)->save($location); // Resize Image & Save Image
@@ -92,19 +93,20 @@ class RegisterUserController extends Controller
 
 
            $result = DB::transaction(function () use ($file_name) {
-                       $id = Img::insertGetId(['image_path' => $file_name, 'image_source' => 'self', 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]); // Save Image path in database
-                       DB::table('image_user')->insert(['user_id' => Auth::user()->id, 'image_id' => $id, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]);
-                       DB::table('profiles')->where('user_id', Auth::user()->id)->update(['image_id' => $id, 'updated_at' => \Carbon\Carbon::now()]);
-                       DB::table('users')->where('id', Auth::user()->id)->update(['status_id' => '2', 'updated_at' => \Carbon\Carbon::now()]);
-                       return true;
-                     }, 5);
+             $id = Img::insertGetId(['user_id' => Auth::user()->id, 'image_path' => $file_name, 'image_source' => 'self', 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]); // Save Image path in database
+             // DB::table('image_user')->insert(['user_id' => Auth::user()->id, 'image_id' => $id, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]);
+             DB::table('profiles')->where('user_id', Auth::user()->id)->update(['image_id' => $id, 'updated_at' => \Carbon\Carbon::now()]);
+             DB::table('profile_stats')->where('user_id', Auth::user()->id)->increment('photo_count', 1, ['updated_at' => \Carbon\Carbon::now()]);
+             DB::table('users')->where('id', Auth::user()->id)->update(['status_id' => '2', 'updated_at' => \Carbon\Carbon::now()]);
+             return true;
+           }, 5);
 
            if($result){
                // Return data for successful execution
                return redirect()->route('home');
            }else{
                //Delete file if failed to execute query
-               // Storage::delete([$location, $location_avtr]);
+               Storage::delete([$location, $location_avtr]);
 
                // Return data for unsuccessful execution
                Session::flash('failed','Oops, Something went Wrong!');

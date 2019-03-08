@@ -56,7 +56,9 @@ class RegisterController extends Controller
             'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6'], /*'|confirmed' - Removed to avoid password confimation*/
-            'g-recaptcha-response' => ['required', 'captcha'], /* g-captcha validation*/
+            //Localhost is not allowed on google recaptcha Code below is tried and tested
+            // and should be uncommented before going live
+            // 'g-recaptcha-response' => ['required', 'captcha'], /* g-captcha validation*/
         ]);
     }
 

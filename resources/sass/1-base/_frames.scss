@@ -1,0 +1,67 @@
+/*Classes for Frames of pages*/
+.col-wall {
+  background-color: #fff;
+  border: 1px solid #d5ecfb;
+}
+.col-wall-b-r {
+  background-color: #fff;
+  border-right: 1px solid #d5ecfb;
+}
+.col-1-main,
+.col-2-main,
+.col-2-side,
+.col-2-2-main,
+.col-2-2-side {
+    &:after,
+    &:before {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+.col-1-main {
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+}
+
+.col-2-main,
+.col-2-side,
+.col-2-2-main,
+.col-2-2-side {
+    float: left;
+    height: auto;
+}
+@media (max-width: 400px) {}
+@media (min-width: 401px) and (max-width: 576px) {}
+@media (min-width: 577px) and (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (min-width: 768px) {}
+@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 768px) and (max-width: 1199px) {}
+@media (min-width: 1200px) {
+    .col-1-main {
+        width: 1150px;
+    }
+
+    .col-2-main {
+        width: 800px;
+    }
+
+    .col-2-side {
+        width: 340px;
+    }
+
+    .col-2-2-main {
+        width: 560px;
+    }
+    .col-2-2-side {
+      width: 230px;
+    }
+}

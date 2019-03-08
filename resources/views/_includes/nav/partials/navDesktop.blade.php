@@ -9,7 +9,7 @@
 <div class="navbar-collapse collapse navbar-right" id="navCollapse">
     {{-- @if (Route::current()->getName() != 'register') --}}
     {{-- @if ((Route::currentRouteName() != 'register') || (Route::currentRouteName() != 'login')) --}}
-    @if (!(Request::is('register') || Request::is('login') || Request::is('register/user/details')|| Request::is('register/user/image')))
+    @if (!(Request::is('register') || Request::is('login') || Request::is('register/user/details')|| Request::is('register/user/image') || Request::is('email/verify')))
     <form class="navbar-form navbar-left" role="search">
         <div data-ripple="rgba(0,0,0,0.5)" class="header-city-name" data-toggle="modal" data-target=".cityModal" title="Click to Change Your City">
             <i class="fa fa-map-marker m-r-5"></i>{{ $cityComposer->city_name }}
@@ -21,13 +21,15 @@
     </form>
     @endif
     <ul class="nav navbar-nav">
-        <li><a data-ripple="rgba(0,0,0,0.5)" href="#" class="" title="Add Free Listing"><i class="fa fa-plus-circle m-r-5"></i>Add Free Listing</a></li>
+        @if (!(Request::is('register') || Request::is('login') || Request::is('register/user/details')|| Request::is('register/user/image') || Request::is('email/verify')))
+        <li class="m-r-5"><a data-ripple="rgba(0,0,0,0.5)" href="#" class="" title="Add Free Listing"><i class="fa fa-plus-circle m-r-5"></i>Add Free Listing</a></li>
         <!--Add {  -{ route('register.profile.category') }-}-->
+        @endif
         @guest()
           @if(Request::is('login'))
-          <li class="active"><a data-ripple="rgba(0,0,0,0.5)" style="cursor: pointer;">
+          <li class="active m-r-5"><a data-ripple="rgba(0,0,0,0.5)" style="cursor: pointer;">
           @else
-          <li><a data-ripple="rgba(0,0,0,0.5)" href="{{ route('login') }}">
+          <li class="m-r-5"><a data-ripple="rgba(0,0,0,0.5)" href="{{ route('login') }}">
           @endif
             <i class="fa fa-sign-in m-r-5"></i>Login</a></li>
 
@@ -38,6 +40,7 @@
           @endif
             <i class="fa fa-user-plus m-r-5"></i>Sign Up</a></li>
         @else
+          @if (!(Request::is('register/user/details') || Request::is('register/user/image') || Request::is('email/verify')))
           <li class="dropdown dd-notification">
               <a href="#" class="btn dropdown-toggle bell" type="button" data-toggle="dropdown" aria-expanded="false" title="20 Notifications">
                   <i class="fa fa-bell-o m-r-5"></i>
@@ -59,10 +62,11 @@
                   <div class="dropdown-arrow-2"></div>
               </ul>
           </li>
+          @endif
           <li class="dropdown dd-user m-l-10">
               <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" title="{{ Auth::user()->fname .' '. Auth::user()->lname }}@if($userComposer)&#013;({{ '@'.$userComposer->username }})@endif">
                   @if($userComposer)
-                  <span class="navbar-user-image" style="background-image: url({{ asset('storage/images/uploads/'.date_format($userComposer->created_at, 'Y').'/avatar/'.$userComposer->image_path) }});"></span>
+                  <span class="navbar-user-image" style="background-image: url({{ asset('storage/images/uploads/'.date_format($userComposer->created_at, 'Y').'/'.date_format($userComposer->created_at, 'm').'/avatar/'.$userComposer->image_path) }});"></span>
                   @else
                   <span class="image_text navbar-user-image-text"></span>
                   @endif
@@ -72,7 +76,7 @@
                   <div class="dd-menu-body">
                       <div align="center" class="dd-menu-image">
                           @if($userComposer)
-                          <img src="{{ asset('storage/images/uploads/'.date_format($userComposer->created_at, 'Y').'/'.$userComposer->image_path) }}" alt="User Image">
+                          <img src="{{ asset('storage/images/uploads/'.date_format($userComposer->created_at, 'Y').'/'.date_format($userComposer->created_at, 'm').'/'.$userComposer->image_path) }}" alt="User Image">
                           @else
                           <span class="image_text"></span>
                           @endif
@@ -84,7 +88,9 @@
                       @endif
                   </div>
                   <div class="dd-menu-footer clearfix">
+                      @if($userComposer)
                       <a data-ripple class="btn btn-red pull-left" href="{{ route('profilePage', $userComposer->username) }}">Profile</a>
+                      @endif
                       <a class="btn btn-default pull-right" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                           Logout
                       </a>

@@ -14,7 +14,15 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
       View::composer(['_includes.nav.mainNav','welcome'], 'App\Http\Composers\ViewComposerCity');
-      View::composer(['_includes.nav.mainNav','home','pages.userPages.profile'], 'App\Http\Composers\ViewComposerUserData');
+      View::composer(['_includes.nav.mainNav','pages.userPages.home','layouts.partials.headTitle'], 'App\Http\Composers\ViewComposerAuthUserData');
+      View::composer(['pages.userPages.profile',
+                      'pages.userPages.reviews',
+                      'pages.userPages.photos',
+                      'pages.userPages.partials.pageNav',
+                      'pages.userPages.partials.pageHeader',
+                      'pages.userPages.partials.basicUserInfo',
+                      'pages.userPages.partials.pageBasicUserInfo'
+                    ], 'App\Http\Composers\ViewComposerUserData');
     }
 
     /**

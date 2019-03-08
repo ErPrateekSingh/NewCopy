@@ -1,0 +1,385 @@
+.canopy {
+    width: 100%;
+    position: relative;
+    transition: height 0.3s;
+
+    .canopyBody {
+        z-index: 4;
+        width: 100%;
+        height: 195px;
+        position: relative;
+
+        .canopyHeader {
+            z-index: 3;
+            height: 195px;
+            max-width: 2560px;
+            position: relative;
+            transition: height 0.3s;
+            background-color: rgb(253, 221, 223);
+
+            &:before {
+                z-index: 1;
+                width: 100%;
+                content: "";
+                height: 100%;
+                display: block;
+                position: absolute;
+                // box-shadow: inset 0 0 1px 1px rgba(0,0,0,0.25);
+                box-shadow: inset 0 0 1px 1px rgba(0,0,0,0.1);
+            }
+
+            .canopyHeaderBg {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                overflow: hidden;
+                position: absolute;
+
+                img {
+                    left: 0;
+                    right: 0;
+                    border: 0;
+                    width: 100%;
+                    top: -9999px;
+                    margin: auto 0;
+                    bottom: -9999px;
+                    position: absolute;
+                }
+            }
+
+            .canopyUserAvatar {
+                // left: 10px;
+                z-index: 3;
+                bottom: -80px;
+                position: absolute;
+                transition: bottom 0.3s;
+
+                .canopyUserImage {
+                    width: 180px;
+                    height: 180px;
+                    background: #fff;
+                    border-radius: 50%;
+                    position: relative;
+                    border: 3px solid #ddd;
+                }
+
+                img {
+                    outline: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    .canopyNavbar {
+        width: 100%;
+        height: 60px;
+        // border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        z-index: 1;
+        position: relative;
+        background-color: #fff;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);
+
+        .canopyNavbarList {
+            height: 60px;
+            position: relative;
+
+            ul {
+                li {
+                    display: inline-block;
+
+                    a {
+                        color: #555;
+                        width: 90px;
+                        line-height: 1.4;
+                        margin-left: 10px;
+                        position: relative;
+                        text-align: center;
+                        margin-right: 10px;
+                        padding: 10px 0 6px;
+                        display: inline-block;
+                        text-decoration: none;
+                        border-bottom: 3px solid;
+                        border-bottom-color: transparent;
+
+                        // &:active,
+                        // &:focus,
+                        &:hover {
+                            color: #777;
+                            border-bottom-color: #f4545f;
+                        }
+
+                        .canopyNavLabel {
+                            display: block;
+                            font-size: 14px;
+                            font-weight: bold;
+                            letter-spacing: 1.1px;
+                        }
+
+                        .canopyNavValue {
+                            font-size: 16px;
+                            display: block;
+                            font-weight: bold;
+                        }
+                    }
+
+                    .active {
+                        color: #777;
+                        border-bottom-color: #f4545f;
+                    }
+
+                    .canopyNavFollowButton,
+                    .canopyNavFollowButtonSelf {
+                      float: left;
+                      width: 120px;
+                      height: 40px;
+                      font-size: 16px;
+                      margin-top: 10px;
+                      font-weight: 500;
+                      border-radius: 20px;
+                      display: inline-block;
+                    }
+
+                    .canopyNavFollowButton {
+                        padding: 8px 20px;
+                    }
+
+                    .canopyNavFollowButtonSelf {
+                        padding: 7px 20px;
+                        border: 1px solid #f5454f;
+                    }
+
+                    .canopyNavOptionButton {
+                      float: left;
+                      width: 20px;
+                      height: 40px;
+                      margin-top: 10px;
+                      i {
+                        display: block;
+                        font-size: 5px;
+                        line-height: 1.4;
+                      }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.u-name-box {
+  a {
+    display: inline-block;
+    max-width: calc(100% - 25px);
+  }
+  .u-name-tick {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+  }
+}
+
+.profilePhotoContainer > ul > li {
+  float: left;
+  margin: 3px;
+  width: 72px;
+  height: 72px;
+  margin-top: 0;
+  margin-right: 0;
+    a {
+        &:hover {
+            opacity: 0.8;
+        }
+
+        img {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover;
+        }
+    }
+}
+
+.profileFollowerContainer > ul > li {
+  float: left;
+  margin: 3px;
+  width: 42px;
+  height: 42px;
+  margin-top: 0;
+  margin-right: 0;
+  display: inline-block;
+
+  a {
+      &:hover {
+          opacity: 0.8;
+      }
+
+      img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+      }
+  }
+}
+
+.reviewWrapper {
+    width: 100%;
+    height: auto;
+
+    .reviewHeader {
+        width: 100%;
+        height: auto;
+        padding: 20px 10px 15px;
+
+        .reviewHeaderImage {
+            float: left;
+            width: 120px;
+            height: 90px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .reviewDetails {
+            float: left;
+            height: auto;
+            padding-left: 12px;
+            padding-right: 12px;
+            display: inline-block;
+            width: calc(100% - 260px);
+
+            .reviewBizName {
+                display: block;
+                font-size: 18px;
+                line-height: 1.1;
+            }
+
+            .reviewTags {
+                font-size: 12px;
+            }
+
+            span {
+                float: none;
+                display: block;
+                font-size: 12px;
+                line-height: 1.4;
+            }
+
+            .reviewStars {
+                // color: #ffd54f;
+                color: #ff4f4f;
+                font-size: 18px;
+                line-height: 1.4;
+                margin-bottom: 3px;
+            }
+        }
+
+        .reviewTime {
+            float: left;
+            width: 140px;
+
+            span {
+                float: right;
+                font-size: 12px;
+                text-transform: capitalize;
+            }
+        }
+    }
+
+    .reviewBody {
+        color: #333;
+        width: 100%;
+        height: auto;
+        padding-left: 50px;
+        padding-right: 12px;
+
+        p {
+            a {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .reviewFooter {
+        padding-top: 10px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+
+        .reviewTools {
+            float: right;
+            display: block;
+            margin-right: 25px;
+
+            .btn {
+                font-size: 12px !important;
+            }
+        }
+    }
+}
+
+.paginateContainer {
+  .paginatePageCount {
+    width: 110px;
+    display: inline-block;
+  }
+  .paginateLinkBar {
+    .pagination {
+      margin: 0px;
+      display: block;
+      border-radius: 0px;
+      li {
+        a, span {
+          border: none;
+          margin-left: 0px;
+          padding: 6px 9px;
+        }
+        &:first-child {
+          a, span {
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+          }
+        }
+        &:last-child {
+          a, span {
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+          }
+        }
+      }
+      .active {
+        span, a, span:hover, span:focus, a:hover, a:focus {
+          border-color: #f4545f;
+          background-color: #f4545f;
+        }
+      }
+      li.disabled.hidden-xs {
+        span {
+          padding: 6px 3px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {}
+@media (min-width: 401px) and (max-width: 576px) {}
+@media (min-width: 577px) and (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (min-width: 768px) {}
+@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 768px) and (max-width: 1199px) {}
+@media (min-width: 1200px) {
+  .canopy {
+    .canopyNavbar {
+      .col-1-main {
+        padding-left: 240px;
+      }
+    }
+  }
+}

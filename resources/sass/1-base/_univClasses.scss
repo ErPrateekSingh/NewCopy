@@ -1,3 +1,45 @@
+/*Class for User Full Name larger size*/
+.u-name-lg {
+  color: #555;
+  font-size: 20px;
+}
+/*Class for User UserName larger size*/
+.u-userName-lg,
+.u-userName-lg > a {
+  color: #777;
+  font-size: 14px;
+}
+/*Class for line-height equals 1*/
+.l-h-1 {
+  line-height: 1 !important;
+}
+/*Class for Border Bottom of 1 px*/
+.b-b-1 {
+  border-bottom: 1px solid #ccc !important;
+}
+/*Class for Border Top of 1 px*/
+.b-t-1 {
+  border-top: 1px solid #ccc !important;
+}
+/*Class for no list-style*/
+ul.no-list-style{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/*Class for color #555*/
+.color-555 {
+  color : #555 !important;
+}
+/*Class for color #555*/
+.color-ddd {
+  color : #ddd !important;
+}
+/*Class for font-size 16px*/
+.font-16 {
+  font-size: 16px !important;
+}
+//------------------------------------------------//
 /*Classes for Specific action*/
 .no-text-select, .image_text {
   -webkit-touch-callout: none; /* iOS Safari */

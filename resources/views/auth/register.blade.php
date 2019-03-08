@@ -11,8 +11,10 @@
                 </div>
                 <div class="panel-body">
                     <form id="registerForm" class="form-horizontal clearfix" method="POST" action="{{ route('register') }}" role="form" novalidate>
-                        @csrf                        
-                        @captcha
+                        @csrf
+                        {{-- Localhost is not allowed on google recaptcha Code below is tried and tested
+                        and should be uncommented before going live --}}
+                        {{-- @captcha --}}
                         <div class="col-xs-10 col-xs-offset-1">
                             <div class="form-group form-group-mat{{ $errors->has('fname') ? ' has-error' : '' }}">
                                 <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" required autocomplete="off" spellcheck="false">

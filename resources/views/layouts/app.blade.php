@@ -5,6 +5,14 @@
     <!-- meta tags in head -->
     @include('layouts.partials.headMeta')
 
+    @yield('title')
+    {{-- <!-- meta title tags in head -->
+    @include('layouts.partials.headTitle') --}}
+
+    <meta name="description" content=""><!--To be added Later-->
+    <meta name="keywords" content=""><!--To be added Later-->
+    <meta name="author" content=""><!--To be added Later-->
+
     <!-- Schema.org markup for Google+ -->
     @include('layouts.partials.headGoogle')
 

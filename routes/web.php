@@ -18,6 +18,11 @@ Auth::routes(['verify' => true]);
 //(OK) Routes to get the page registration page
 // Route::get('/register/page', 'RegisterPageController@index')->name('register.page.index');
 
+//Routes for search result page
+Route::get('/search', function () {
+    return view('pages.search.searchResult');
+});
+
 
 //(OK) Routes to check if user is verified before displaying the pages
 Route::group(['middleware' => ['verified']], function() {
@@ -35,6 +40,10 @@ Route::group(['middleware' => ['verified']], function() {
 
 //(OK) Route for registered user profile page
 Route::get('/{username}', 'ProfileController@showProfilePage')->name('profilePage')->where('username', '[\w\d]+');
+//(OK) Route for registered user review page
+Route::get('/{username}/reviews', 'ReviewController@showReviewPage')->name('reviewPage')->where('username', '[\w\d]+');
+//(OK) Route for registered user review page
+Route::get('/{username}/photos', 'ImageController@showPhotoPage')->name('photoPage')->where('username', '[\w\d]+');
 
 //(OK) Route to get city using state_id through ajax request
 Route::post('/get/city', 'AjaxRequestController@ajaxGetCity')->name('get.city');
