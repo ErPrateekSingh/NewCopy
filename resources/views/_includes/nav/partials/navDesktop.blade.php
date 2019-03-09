@@ -22,7 +22,7 @@
     @endif
     <ul class="nav navbar-nav">
         @if (!(Request::is('register') || Request::is('login') || Request::is('register/user/details')|| Request::is('register/user/image') || Request::is('email/verify')))
-        <li class="m-r-5"><a data-ripple="rgba(0,0,0,0.5)" href="#" class="" title="Add Free Listing"><i class="fa fa-plus-circle m-r-5"></i>Add Free Listing</a></li>
+        <li class="m-r-15"><a data-ripple="rgba(0,0,0,0.5)" href="#" class="" title="Add Free Listing"><i class="fa fa-plus-circle m-r-5"></i>Add Free Listing</a></li>
         <!--Add {  -{ route('register.profile.category') }-}-->
         @endif
         @guest()
@@ -34,43 +34,49 @@
             <i class="fa fa-sign-in m-r-5"></i>Login</a></li>
 
           @if(Request::is('register'))
-          <li class="active"><a data-ripple="rgba(0,0,0,0.5)" style="cursor: pointer;">
+          <li class="active m-r-5"><a data-ripple="rgba(0,0,0,0.5)" style="cursor: pointer;">
           @else
-          <li><a data-ripple="rgba(0,0,0,0.5)" href="{{ route('register') }}">
+          <li class="m-r-5"><a data-ripple="rgba(0,0,0,0.5)" href="{{ route('register') }}">
           @endif
             <i class="fa fa-user-plus m-r-5"></i>Sign Up</a></li>
         @else
           @if (!(Request::is('register/user/details') || Request::is('register/user/image') || Request::is('email/verify')))
-          <li class="dropdown dd-notification">
-              <a href="#" class="btn dropdown-toggle bell" type="button" data-toggle="dropdown" aria-expanded="false" title="20 Notifications">
-                  <i class="fa fa-bell-o m-r-5"></i>
-                  <span>Notifications</span>
-                  <div class="notify-badge">20</div>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                  <div class="dd-menu-header">
-                      Notifications
-                  </div>
-                  <div class="dd-menu-body">
-                      <!--Notification Body Goes Here-->
-                  </div>
-                  <div align="center" class="dd-menu-footer">
-                      <a href="#">See All Notifications</a>
-                  </div>
+            <li class="dropdown navbar-home-btn m-r-5">
+                <a href="{{ route('home') }}" class="btn p-l-15 p-r-15 p-t-10 p-b-10 l-h-1" title="Home">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li class="dropdown dd-notification navbar-bell-btn m-r-5">
+                <a href="#" class="btn dropdown-toggle bell p-l-15 p-r-15 p-t-10 p-b-10 l-h-1" type="button" data-toggle="dropdown" aria-expanded="false" title="20 Notifications">
+                    <i class="fa fa-bell-o"></i>
+                    {{-- <i class="fa fa-bell-o m-r-5"></i> --}}
+                    {{-- <span>Notifications</span> --}}
+                    <div class="notify-badge">20</div>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <div class="dd-menu-header">
+                        Notifications
+                    </div>
+                    <div class="dd-menu-body">
+                        <!--Notification Body Goes Here-->
+                    </div>
+                    <div align="center" class="dd-menu-footer">
+                        <a href="#">See All Notifications</a>
+                    </div>
 
-                  <div class="dropdown-arrow-1"></div>
-                  <div class="dropdown-arrow-2"></div>
-              </ul>
-          </li>
+                    <div class="dropdown-arrow-1"></div>
+                    <div class="dropdown-arrow-2"></div>
+                </ul>
+            </li>
           @endif
-          <li class="dropdown dd-user m-l-10">
+          <li class="dropdown dd-user m-r-5">
               <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" title="{{ Auth::user()->fname .' '. Auth::user()->lname }}@if($userComposer)&#013;({{ '@'.$userComposer->username }})@endif">
                   @if($userComposer)
                   <span class="navbar-user-image" style="background-image: url({{ asset('storage/images/uploads/'.date_format($userComposer->created_at, 'Y').'/'.date_format($userComposer->created_at, 'm').'/avatar/'.$userComposer->image_path) }});"></span>
                   @else
                   <span class="image_text navbar-user-image-text"></span>
                   @endif
-                  <span id="userFirstName" class="navbar-user-name text-trim">{{ Auth::user()->fname }}</span>
+                  {{-- <span class="navbar-user-name text-trim">{{ Auth::user()->fname }}</span> --}}
               </button>
               <ul class="dropdown-menu" role="menu">
                   <div class="dd-menu-body">
@@ -81,7 +87,7 @@
                           <span class="image_text"></span>
                           @endif
                       </div>
-                      <div class="dd-menu-name text-trim m-t-5">{{ Auth::user()->fname .' '. Auth::user()->lname }}</div>
+                      <div id="userFirstName" class="dd-menu-name text-trim m-t-5">{{ Auth::user()->fname .' '. Auth::user()->lname }}</div>
                       @if($userComposer)
                       <div class="dd-menu-username text-trim m-b-5">({{ '@'.$userComposer->username }})</div>
                       <!-- <div class="dd-menu-city text-trim">Allahabad, Uttar Pradesh, India</div> -->

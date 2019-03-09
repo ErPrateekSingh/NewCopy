@@ -69,6 +69,19 @@
           background-color: transparent;
         }
       }
+
+      &.navbar-bell-btn > a > i {
+          font-size: 24px;
+          padding: 3px 0px;
+      }
+
+      &.navbar-home-btn {
+        a{
+          font-size: 26px;
+          margin: 2px 0px 0px;
+        }
+      }
+
       &.dropdown {
          > .btn {
             border: 0px;
@@ -81,39 +94,40 @@
                background-color: transparent;
                border-bottom-color: $theme-red-dark;
             }
+
+            .navbar-user-image,
+            .navbar-user-image-text{
+              float: left;
+              width: 35px;
+              height: 35px;
+              margin: 1px 0px 0px;
+              border-radius: 50%;
+              display: inline-block;
+            }
+
             .navbar-user-image{
-               float: left;
-               width: 32px;
-               height: 32px;
-               margin-top: 2px;
-               margin-right: 8px;
-               border-radius: 50%;
-               display: inline-block;
+               // margin-top: 2px;
+               // margin-right: 8px;
                background-color: #eee;
                background-size: cover;
                background-position: center;
                background-repeat: no-repeat;
             }
             .navbar-user-image-text{
-               float: left;
                color: #fff;
-               width: 32px;
-               height: 32px;
                font-size: 20px;
-               margin-top: 2px;
+               // margin-top: 2px;
                font-weight: 500;
-               margin-right: 8px;
+               // margin-right: 8px;
                text-align: center;
-               border-radius: 50%;
-               display: inline-block;
                background-color: #f4545f;
                text-transform: uppercase;
             }
-            .navbar-user-name{
-               display: block;
-               max-width: 60px;
-               padding: 8px 0px 6px;
-            }
+            // .navbar-user-name{
+            //    display: block;
+            //    max-width: 60px;
+            //    padding: 8px 0px 6px;
+            // }
          }
       }
       > .dropdown-menu {
@@ -204,18 +218,14 @@
 }
 
 .notify-badge {
-   top: 10px;
-   right: 0px;
-   color: #fff;
-   width: 20px;
-   height: 14px;
-   padding: 2px;
-   line-height: 1;
-   font-size: 10px;
-   position: absolute;
-   border-radius: 35%;
-   background-color: $theme-red-dark;
-   font-weight: bold;
+  top: 13px;
+  left: 28px;
+  color: #fff;
+  padding: 2px 3px;
+  font-size: 10px;
+  position: absolute;
+  border-radius: 30%;
+  background-color: $theme-red-dark;
 }
 
 #feedback-button {

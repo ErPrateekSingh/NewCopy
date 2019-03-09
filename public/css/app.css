@@ -12421,7 +12421,6 @@ fieldset {
 /*Class for User Full Name larger size*/
 
 .u-name-lg {
-  color: #555;
   font-size: 20px;
 }
 
@@ -12457,6 +12456,12 @@ ul.no-list-style {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/*Class for color #555*/
+
+.color-dark {
+  color: #14171a !important;
 }
 
 /*Class for color #555*/
@@ -13019,6 +13024,16 @@ div::-webkit-scrollbar-thumb:active {
   background-color: transparent;
 }
 
+.navbar .navbar-nav > li.navbar-bell-btn > a > i {
+  font-size: 24px;
+  padding: 3px 0px;
+}
+
+.navbar .navbar-nav > li.navbar-home-btn a {
+  font-size: 26px;
+  margin: 2px 0px 0px;
+}
+
 .navbar .navbar-nav > li.dropdown > .btn {
   border: 0px;
   background-color: #fff;
@@ -13036,14 +13051,17 @@ div::-webkit-scrollbar-thumb:active {
   border-bottom-color: #f5454f;
 }
 
-.navbar .navbar-nav > li.dropdown > .btn .navbar-user-image {
+.navbar .navbar-nav > li.dropdown > .btn .navbar-user-image,
+.navbar .navbar-nav > li.dropdown > .btn .navbar-user-image-text {
   float: left;
-  width: 32px;
-  height: 32px;
-  margin-top: 2px;
-  margin-right: 8px;
+  width: 35px;
+  height: 35px;
+  margin: 1px 0px 0px;
   border-radius: 50%;
   display: inline-block;
+}
+
+.navbar .navbar-nav > li.dropdown > .btn .navbar-user-image {
   background-color: #eee;
   background-size: cover;
   background-position: center;
@@ -13051,25 +13069,12 @@ div::-webkit-scrollbar-thumb:active {
 }
 
 .navbar .navbar-nav > li.dropdown > .btn .navbar-user-image-text {
-  float: left;
   color: #fff;
-  width: 32px;
-  height: 32px;
   font-size: 20px;
-  margin-top: 2px;
   font-weight: 500;
-  margin-right: 8px;
   text-align: center;
-  border-radius: 50%;
-  display: inline-block;
   background-color: #f4545f;
   text-transform: uppercase;
-}
-
-.navbar .navbar-nav > li.dropdown > .btn .navbar-user-name {
-  display: block;
-  max-width: 60px;
-  padding: 8px 0px 6px;
 }
 
 .navbar .navbar-nav > li > .dropdown-menu {
@@ -13169,18 +13174,14 @@ div::-webkit-scrollbar-thumb:active {
 }
 
 .notify-badge {
-  top: 10px;
-  right: 0px;
+  top: 13px;
+  left: 28px;
   color: #fff;
-  width: 20px;
-  height: 14px;
-  padding: 2px;
-  line-height: 1;
+  padding: 2px 3px;
   font-size: 10px;
   position: absolute;
-  border-radius: 35%;
+  border-radius: 30%;
   background-color: #f5454f;
-  font-weight: bold;
 }
 
 #feedback-button a {
@@ -15417,14 +15418,13 @@ footer {
 }
 
 .u-name-box a {
-  display: inline-block;
   max-width: calc(100% - 25px);
 }
 
 .u-name-box .u-name-tick {
   width: 18px;
   height: 18px;
-  display: inline-block;
+  margin-top: 7px;
 }
 
 .profilePhotoContainer > ul > li {

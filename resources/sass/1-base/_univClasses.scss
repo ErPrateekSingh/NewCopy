@@ -1,6 +1,6 @@
 /*Class for User Full Name larger size*/
 .u-name-lg {
-  color: #555;
+  // color: #555;
   font-size: 20px;
 }
 /*Class for User UserName larger size*/
@@ -26,6 +26,10 @@ ul.no-list-style{
   margin: 0;
   padding: 0;
   list-style: none;
+}
+/*Class for color #555*/
+.color-dark {
+  color : #14171a !important;
 }
 /*Class for color #555*/
 .color-555 {

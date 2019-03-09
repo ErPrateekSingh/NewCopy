@@ -1,9 +1,11 @@
 <div class="col-wall @if (Route::is('profilePage')) p-a-15 @else p-t-10 p-b-10 p-l-15 p-r-15 @endif">
-    <div class="u-name-box m-t-5">
-        <a class="u-name-lg text-trim l-h-1 p-b-5" href="{{ route('profilePage', $userNameComposer->username) }}">
-            {{ $userNameComposer->fname .' '. $userNameComposer->lname }}
+    <div class="u-name-box clearfix">
+        <a class="u-name-lg text-trim color-dark pull-left" href="{{ route('profilePage', $userNameComposer->username) }}">
+            <strong>
+                {{ $userNameComposer->fname .' '. $userNameComposer->lname }}
+            </strong>
         </a>
-        <span class="u-name-tick m-b-5" data-toggle="tooltip" data-placement="right" title="Verified Account">
+        <span class="u-name-tick pull-left m-l-5" data-toggle="tooltip" data-placement="right" title="Verified Account">
             <img class="img-responsive" src="{{ asset('images/282944038008211-18X18.png') }}" alt="Verified tick">
         </span>
     </div>

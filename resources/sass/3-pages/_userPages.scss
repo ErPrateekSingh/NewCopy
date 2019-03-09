@@ -173,13 +173,12 @@
 
 .u-name-box {
   a {
-    display: inline-block;
     max-width: calc(100% - 25px);
   }
   .u-name-tick {
     width: 18px;
     height: 18px;
-    display: inline-block;
+    margin-top: 7px;
   }
 }
 

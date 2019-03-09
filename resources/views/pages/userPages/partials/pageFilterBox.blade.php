@@ -1,4 +1,4 @@
-<div class="col-wall  p-l-15 p-r-15" style=" padding-top: 25px; padding-bottom: 25px;">
+<div class="col-wall  p-l-15 p-r-15" style=" padding-top: 23px; padding-bottom: 22px;">
   <div class="l-h-1 m-r-15 pull-left" style="display: inline-block; padding: 7px; font-weight: 600;">Sort By :</div>
   <div class="btn btn-default l-h-1" data-ripple="rgba(0,0,0,0.5)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Sort by Date">
       <i class="fa fa-clock-o m-r-5"></i>Date
