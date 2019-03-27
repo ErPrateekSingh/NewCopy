@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Page;
 
+use Auth;
 use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -38,7 +39,7 @@ class RegisterController extends Controller
                     $data->sub_category_id = $request->subCategory;
                     $data->save();
                     // DB::table('user_page')->where('id', Auth::user()->id)->update(['status_id' => '1', 'updated_at' => \Carbon\Carbon::now()]);
-                    DB::table('page_user')->insert(['page_id' => $page-id, 'user_id' => Auth::user()->id, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]);
+                    DB::table('page_user')->insert(['page_id' => $data->id, 'user_id' => Auth::user()->id, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]);
                     return true;
                 }, 5);
 

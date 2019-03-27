@@ -17,7 +17,7 @@ class CreatePagesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('sub_category_id');
-            $table->string('name');
+            $table->string('name');->nullable();
             $table->unsignedInteger('status_id')->default("0");
             $table->timestamps();
         });
