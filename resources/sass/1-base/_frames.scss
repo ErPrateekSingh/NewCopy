@@ -7,6 +7,15 @@
   background-color: #fff;
   border-right: 1px solid #d5ecfb;
 }
+.col-light {
+  background-color: #fff;
+}
+.col-dark {
+  background-color: #f5f8fa;
+}
+
+.col-full,
+.col-half,
 .col-1-main,
 .col-2-main,
 .col-2-side,
@@ -22,14 +31,20 @@
         clear: both;
     }
 }
-
+.col-full,
 .col-1-main {
     height: 100%;
-    margin: 0 auto;
     display: block;
     position: relative;
 }
-
+.col-full {
+  width: 100%;
+  margin: 0 !important;
+}
+.col-1-main {
+  margin: 0 auto;
+}
+.col-half,
 .col-2-main,
 .col-2-side,
 .col-2-2-main,
@@ -46,6 +61,9 @@
 @media (min-width: 992px) and (max-width: 1199px) {}
 @media (min-width: 768px) and (max-width: 1199px) {}
 @media (min-width: 1200px) {
+    .col-half {
+      width: 50%;
+    }
     .col-1-main {
         width: 1150px;
     }

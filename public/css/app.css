@@ -12438,10 +12438,18 @@ fieldset {
   line-height: 1 !important;
 }
 
-/*Class for Border Bottom of 1 px*/
+/*Class for no list-style*/
 
-.b-b-1 {
-  border-bottom: 1px solid #ccc !important;
+ul.no-list-style {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*Class for Border of 1 px*/
+
+.b-a-1 {
+  border: 1px solid #ccc !important;
 }
 
 /*Class for Border Top of 1 px*/
@@ -12450,12 +12458,10 @@ fieldset {
   border-top: 1px solid #ccc !important;
 }
 
-/*Class for no list-style*/
+/*Class for Border Bottom of 1 px*/
 
-ul.no-list-style {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.b-b-1 {
+  border-bottom: 1px solid #ccc !important;
 }
 
 /*Class for color #555*/
@@ -12644,6 +12650,18 @@ ul.no-list-style {
   border-right: 1px solid #d5ecfb;
 }
 
+.col-light {
+  background-color: #fff;
+}
+
+.col-dark {
+  background-color: #f5f8fa;
+}
+
+.col-full:after,
+.col-full:before,
+.col-half:after,
+.col-half:before,
 .col-1-main:after,
 .col-1-main:before,
 .col-2-main:after,
@@ -12658,6 +12676,8 @@ ul.no-list-style {
   display: table;
 }
 
+.col-full:after,
+.col-half:after,
 .col-1-main:after,
 .col-2-main:after,
 .col-2-side:after,
@@ -12666,13 +12686,23 @@ ul.no-list-style {
   clear: both;
 }
 
+.col-full,
 .col-1-main {
   height: 100%;
-  margin: 0 auto;
   display: block;
   position: relative;
 }
 
+.col-full {
+  width: 100%;
+  margin: 0 !important;
+}
+
+.col-1-main {
+  margin: 0 auto;
+}
+
+.col-half,
 .col-2-main,
 .col-2-side,
 .col-2-2-main,
@@ -12682,6 +12712,10 @@ ul.no-list-style {
 }
 
 @media (min-width: 1200px) {
+  .col-half {
+    width: 50%;
+  }
+
   .col-1-main {
     width: 1150px;
   }
@@ -12797,6 +12831,10 @@ div::-webkit-scrollbar-thumb:active {
 .button::before {
   background: none !important;
   border: none !important;
+}
+
+.tooltip {
+  z-index: 999;
 }
 
 .tooltip-inner {
@@ -13024,12 +13062,12 @@ div::-webkit-scrollbar-thumb:active {
   background-color: transparent;
 }
 
-.navbar .navbar-nav > li.navbar-bell-btn > a > i {
+.navbar .navbar-nav > li.navbar-bell-btn > button > i {
   font-size: 24px;
-  padding: 3px 0px;
+  padding: 7px 0px 5px;
 }
 
-.navbar .navbar-nav > li.navbar-home-btn a {
+.navbar .navbar-nav > li.navbar-home-btn > a {
   font-size: 26px;
   margin: 2px 0px 0px;
 }
@@ -13056,6 +13094,7 @@ div::-webkit-scrollbar-thumb:active {
   float: left;
   width: 35px;
   height: 35px;
+  line-height: 1.8;
   margin: 1px 0px 0px;
   border-radius: 50%;
   display: inline-block;
@@ -13084,7 +13123,6 @@ div::-webkit-scrollbar-thumb:active {
 
 .navbar .navbar-nav > li > .dropdown-menu .dd-menu-header {
   padding: 5px 15px;
-  background-color: #f5f8fa;
   border-bottom: 1px solid #ccc;
 }
 
@@ -13149,7 +13187,7 @@ div::-webkit-scrollbar-thumb:active {
 .navbar .navbar-nav > li .dropdown-arrow-2 {
   width: 0;
   height: 0;
-  right: 30px;
+  right: 17px;
   position: absolute;
   border-color: transparent;
   border-width: 0 8.5px 8.5px;
@@ -14896,8 +14934,7 @@ footer {
 .homeUserAvatar {
   width: 120px;
   height: 120px;
-  margin: 0 auto;
-  margin-top: 30px;
+  margin: 30px auto 0;
   position: relative;
 }
 
@@ -14931,8 +14968,7 @@ footer {
 .homeSidebarItems a {
   color: #525252;
   display: block;
-  font-size: 16px;
-  padding: 7px 30px;
+  padding: 7px 20px;
   text-decoration: none;
   border-left: 5px solid;
   border-color: transparent;
@@ -14943,54 +14979,6 @@ footer {
 .homeSidebarItems a:hover {
   border-color: #f4545f;
   background-color: rgba(0, 0, 0, 0.05);
-}
-
-#homeCenter {
-  float: left;
-  position: relative;
-  padding-top: 20px;
-}
-
-#homeRight {
-  float: left;
-  height: auto;
-  padding-top: 20px;
-  position: relative;
-  border-left: 1px solid #ccc;
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-  #homeCenter {
-    width: calc(100% - 540px);
-  }
-
-  #homeRight {
-    width: 320px;
-    padding: 0 10px;
-  }
-
-  #homeRight > .UW {
-    width: 300px;
-    height: 250px;
-    padding-top: 90px;
-  }
-}
-
-@media (min-width: 1200px) {
-  #homeCenter {
-    width: calc(100% - 570px);
-  }
-
-  #homeRight {
-    width: 350px;
-    padding: 0 7px;
-  }
-
-  #homeRight > .UW {
-    width: 336px;
-    height: 280px;
-    padding-top: 105px;
-  }
 }
 
 .homepage-hero {
@@ -15641,16 +15629,6 @@ footer {
 
 .verifyWrapper .panel h3 {
   margin: 25px 0px;
-}
-
-.verifyWrapper .panel .alert {
-  border: none;
-  border-radius: 0px;
-  font-size: 16px;
-}
-
-.verifyWrapper .panel .alert p {
-  margin: 10px 0px;
 }
 
 .verifyWrapper .panel p {

@@ -20,6 +20,9 @@
 }
 
 // Tooltip Overrides
+.tooltip {
+  z-index: 999;
+}
 .tooltip-inner {
    min-width: 100px;
    max-width: 100%;

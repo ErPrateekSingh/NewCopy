@@ -1,6 +1,5 @@
 /*Class for User Full Name larger size*/
 .u-name-lg {
-  // color: #555;
   font-size: 20px;
 }
 /*Class for User UserName larger size*/
@@ -13,20 +12,35 @@
 .l-h-1 {
   line-height: 1 !important;
 }
-/*Class for Border Bottom of 1 px*/
-.b-b-1 {
-  border-bottom: 1px solid #ccc !important;
-}
-/*Class for Border Top of 1 px*/
-.b-t-1 {
-  border-top: 1px solid #ccc !important;
-}
 /*Class for no list-style*/
 ul.no-list-style{
   margin: 0;
   padding: 0;
   list-style: none;
 }
+
+//-----------------------------------------------------//
+//-------------------  COLORS  ------------------------//
+//-----------------------------------------------------//
+
+/*Class for Border of 1 px*/
+.b-a-1 {
+  border: 1px solid #ccc !important;
+}
+/*Class for Border Top of 1 px*/
+.b-t-1 {
+  border-top: 1px solid #ccc !important;
+}
+/*Class for Border Bottom of 1 px*/
+.b-b-1 {
+  border-bottom: 1px solid #ccc !important;
+}
+
+
+//-----------------------------------------------------//
+//-------------------  COLORS  ------------------------//
+//-----------------------------------------------------//
+
 /*Class for color #555*/
 .color-dark {
   color : #14171a !important;
@@ -39,10 +53,18 @@ ul.no-list-style{
 .color-ddd {
   color : #ddd !important;
 }
+
+
+//-----------------------------------------------------//
+//-------------------  FONTS  -------------------------//
+//-----------------------------------------------------//
+
 /*Class for font-size 16px*/
 .font-16 {
   font-size: 16px !important;
 }
+
+
 //------------------------------------------------//
 /*Classes for Specific action*/
 .no-text-select, .image_text {

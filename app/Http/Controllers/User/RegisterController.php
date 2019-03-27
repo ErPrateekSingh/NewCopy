@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use Auth;
 use Image;
@@ -9,9 +9,10 @@ use App\Profile;
 use App\Image as Img;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
-class RegisterUserController extends Controller
+class RegisterController extends Controller
 {
       /*function to display user details page to user after email varification*/
      public function getUserDetailsForm() {
@@ -93,8 +94,8 @@ class RegisterUserController extends Controller
 
 
            $result = DB::transaction(function () use ($file_name) {
-             $id = Img::insertGetId(['user_id' => Auth::user()->id, 'image_path' => $file_name, 'image_source' => 'self', 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]); // Save Image path in database
-             // DB::table('image_user')->insert(['user_id' => Auth::user()->id, 'image_id' => $id, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]);
+             $id = Img::insertGetId(['image_path' => $file_name, 'image_source' => 'self', 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]); // Save Image path in database
+             DB::table('image_user')->insert(['image_id' => $id, 'user_id' => Auth::user()->id, 'created_at' =>  \Carbon\Carbon::now(), 'updated_at' => \Carbon\Carbon::now()]);
              DB::table('profiles')->where('user_id', Auth::user()->id)->update(['image_id' => $id, 'updated_at' => \Carbon\Carbon::now()]);
              DB::table('profile_stats')->where('user_id', Auth::user()->id)->increment('photo_count', 1, ['updated_at' => \Carbon\Carbon::now()]);
              DB::table('users')->where('id', Auth::user()->id)->update(['status_id' => '2', 'updated_at' => \Carbon\Carbon::now()]);

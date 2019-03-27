@@ -9,7 +9,7 @@
 <div class="navbar-collapse collapse navbar-right" id="navCollapse">
     {{-- @if (Route::current()->getName() != 'register') --}}
     {{-- @if ((Route::currentRouteName() != 'register') || (Route::currentRouteName() != 'login')) --}}
-    @if (!(Request::is('register') || Request::is('login') || Request::is('register/user/details')|| Request::is('register/user/image') || Request::is('email/verify')))
+    @if (!(Request::is('register') || Request::is('login') || Request::is('register/user/details') || Request::is('register/user/image') || Request::is('email/verify') || Request::is('register/page') || Request::is('register/page/category')))
     <form class="navbar-form navbar-left" role="search">
         <div data-ripple="rgba(0,0,0,0.5)" class="header-city-name" data-toggle="modal" data-target=".cityModal" title="Click to Change Your City">
             <i class="fa fa-map-marker m-r-5"></i>{{ $cityComposer->city_name }}
@@ -21,10 +21,10 @@
     </form>
     @endif
     <ul class="nav navbar-nav">
-        @if (!(Request::is('register') || Request::is('login') || Request::is('register/user/details')|| Request::is('register/user/image') || Request::is('email/verify')))
-        <li class="m-r-15"><a data-ripple="rgba(0,0,0,0.5)" href="#" class="" title="Add Free Listing"><i class="fa fa-plus-circle m-r-5"></i>Add Free Listing</a></li>
-        <!--Add {  -{ route('register.profile.category') }-}-->
+        @if (!(Request::is('register') || Request::is('login') || Request::is('register/user/details')|| Request::is('register/user/image') || Request::is('email/verify') || Request::is('register/page') || Request::is('register/page/category')))
+        <li class="m-r-15"><a data-ripple="rgba(0,0,0,0.5)" href="{{ route('register.page.index') }}" class="" title="Add Free Listing"><i class="fa fa-plus-circle m-r-5"></i>Add Free Listing</a></li>
         @endif
+
         @guest()
           @if(Request::is('login'))
           <li class="active m-r-5"><a data-ripple="rgba(0,0,0,0.5)" style="cursor: pointer;">
@@ -47,12 +47,10 @@
                 </a>
             </li>
             <li class="dropdown dd-notification navbar-bell-btn m-r-5">
-                <a href="#" class="btn dropdown-toggle bell p-l-15 p-r-15 p-t-10 p-b-10 l-h-1" type="button" data-toggle="dropdown" aria-expanded="false" title="20 Notifications">
+                <button class="btn dropdown-toggle bell p-l-15 p-r-15 l-h-1" type="button" data-toggle="dropdown" aria-expanded="false" title="20 Notifications">
                     <i class="fa fa-bell-o"></i>
-                    {{-- <i class="fa fa-bell-o m-r-5"></i> --}}
-                    {{-- <span>Notifications</span> --}}
                     <div class="notify-badge">20</div>
-                </a>
+                </button>
                 <ul class="dropdown-menu" role="menu">
                     <div class="dd-menu-header">
                         Notifications
@@ -76,7 +74,6 @@
                   @else
                   <span class="image_text navbar-user-image-text"></span>
                   @endif
-                  {{-- <span class="navbar-user-name text-trim">{{ Auth::user()->fname }}</span> --}}
               </button>
               <ul class="dropdown-menu" role="menu">
                   <div class="dd-menu-body">
@@ -90,7 +87,6 @@
                       <div id="userFirstName" class="dd-menu-name text-trim m-t-5">{{ Auth::user()->fname .' '. Auth::user()->lname }}</div>
                       @if($userComposer)
                       <div class="dd-menu-username text-trim m-b-5">({{ '@'.$userComposer->username }})</div>
-                      <!-- <div class="dd-menu-city text-trim">Allahabad, Uttar Pradesh, India</div> -->
                       @endif
                   </div>
                   <div class="dd-menu-footer clearfix">

@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-  <title>{{ 'Reviews | '. $userNameComposer->fname .' '. $userNameComposer->lname .' (@'.$userNameComposer->username.') | '. $siteName }}</title>
-@endsection
+@section('title', 'Reviews | '. $userNameComposer->fname .' '. $userNameComposer->lname .' (@'.$userNameComposer->username.')')
 
 @section('styles')
 @endsection

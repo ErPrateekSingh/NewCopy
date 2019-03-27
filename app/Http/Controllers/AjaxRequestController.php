@@ -38,6 +38,21 @@ class AjaxRequestController extends Controller
       }
     }
 
+    /* UNSECURE - function to get subcategory list using category_id through ajax request */
+    /* returns the subcategory list*/
+    public function ajaxGetSubCategory(Request $request) {
+      // Setup the validator
+      $validator = Validator::make($request->all(), [
+          'id'=>'required|integer'
+      ]);
+
+      // Validate the input and return correct response
+      if (!$validator->fails()) {
+        $subcategories = DB::table("sub_categories")->select('id','name','icon')->where("category_id",$request->id)->get();
+        return response()->json($subcategories);
+      }
+    }
+
     /* SECURED WITH API - function to check if userName is unique through */
     /* ajax request using user's api; returns true if unique*/
     public function apiCheckUniqueUserName(Request $request) {

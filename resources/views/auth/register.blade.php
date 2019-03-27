@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('title', 'Sign Up')
+
+@section('styles')
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">

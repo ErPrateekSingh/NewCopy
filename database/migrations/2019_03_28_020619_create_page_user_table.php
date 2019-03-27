@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImageUserTable extends Migration
+class CreatePageUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateImageUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('image_user', function (Blueprint $table) {
-          $table->integer('image_id')->unsigned();
+        Schema::create('page_user', function (Blueprint $table) {
+          $table->integer('page_id')->unsigned();
           $table->integer('user_id')->unsigned();
           $table->timestamps();
 
-          $table->primary(['user_id', 'image_id']);
+          $table->primary(['user_id', 'page_id']);
         });
     }
 
@@ -29,6 +29,6 @@ class CreateImageUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('image_user');
+        Schema::dropIfExists('page_user');
     }
 }

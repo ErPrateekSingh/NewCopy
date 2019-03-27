@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImageUserTable extends Migration
+class CreateSubCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateImageUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('image_user', function (Blueprint $table) {
-          $table->integer('image_id')->unsigned();
-          $table->integer('user_id')->unsigned();
-          $table->timestamps();
-
-          $table->primary(['user_id', 'image_id']);
+        Schema::create('sub_categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('category_id');
+            $table->string('icon');
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateImageUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('image_user');
+        Schema::dropIfExists('sub_categories');
     }
 }

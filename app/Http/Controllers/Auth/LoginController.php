@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use Auth;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -21,13 +22,38 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    protected function authenticated()
+    protected function authenticated(Request $request, $user)
     {
         if (Auth::user()->status_id >= 2) {
-          return redirect('/home');
+          if (session('link')) {
+            return redirect(session('link'));
+          } else {
+            return redirect('/home');
+          }
         } else {
           return redirect()->route('register.user.details');
         }
+    }
+
+    public function showLoginForm()
+    {
+        if (session('link')) {
+            $myPath     = session('link');
+            $loginPath  = url('/login');
+            $previous   = url()->previous();
+
+            if ($previous = $loginPath) {
+                session(['link' => $myPath]);
+            }
+            else{
+                session(['link' => $previous]);
+            }
+        }
+        else{
+             session(['link' => url()->previous()]);
+        }
+
+        return view('auth.login');
     }
 
     /**

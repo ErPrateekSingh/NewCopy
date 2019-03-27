@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Upload User Image')
+
 @section('styles')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/3.1.4/cropper.css">
 <style>

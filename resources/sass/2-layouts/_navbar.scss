@@ -70,16 +70,14 @@
         }
       }
 
-      &.navbar-bell-btn > a > i {
+      &.navbar-bell-btn > button > i {
           font-size: 24px;
-          padding: 3px 0px;
+          padding: 7px 0px 5px;
       }
 
-      &.navbar-home-btn {
-        a{
+      &.navbar-home-btn > a {
           font-size: 26px;
           margin: 2px 0px 0px;
-        }
       }
 
       &.dropdown {
@@ -100,6 +98,7 @@
               float: left;
               width: 35px;
               height: 35px;
+              line-height: 1.8;
               margin: 1px 0px 0px;
               border-radius: 50%;
               display: inline-block;
@@ -135,7 +134,7 @@
          border-radius: 0px;
          .dd-menu-header {
             padding: 5px 15px;
-            background-color: #f5f8fa;
+            // background-color: #f5f8fa;
             border-bottom: 1px solid #ccc;
          }
          .dd-menu-body {
@@ -193,7 +192,7 @@
       .dropdown-arrow-1, .dropdown-arrow-2 {
          width: 0;
          height: 0;
-         right: 30px;
+         right: 17px;
          position: absolute;
          border-color: transparent;
          border-width: 0 8.5px 8.5px;

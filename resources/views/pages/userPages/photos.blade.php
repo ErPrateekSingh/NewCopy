@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-  <title>{{ 'Photos | '. $userNameComposer->fname .' '. $userNameComposer->lname .' (@'.$userNameComposer->username.') | '. $siteName }}</title>
-@endsection
+@section('title', 'Photos | '. $userNameComposer->fname .' '. $userNameComposer->lname .' (@'.$userNameComposer->username.')')
 
 @section('styles')
 <style media="screen">
